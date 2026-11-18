@@ -1,0 +1,449 @@
+[
+  {
+    "type": "exam",
+    "slug": "ssc-cgl",
+    "title": "SSC CGL preparation roadmap",
+    "overview": "A subject-oriented practice route. This is an illustrative learning plan, not an official syllabus. Check current SSC notices before planning for an exam cycle.",
+    "stages": [
+      {
+        "id": "quant",
+        "title": "Quantitative Aptitude",
+        "description": "Build numerical fluency before timed practice.",
+        "topics": [
+          {
+            "id": "number-basics",
+            "title": "Number basics",
+            "description": "Review arithmetic, fractions, percentages, and ratios through worked examples.",
+            "hours": 8,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "quant-practice",
+            "title": "Quantitative practice",
+            "description": "Apply number skills to mixed problem sets and record recurring errors.",
+            "hours": 10,
+            "prerequisites": [
+              "Number basics"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "reasoning",
+        "title": "Reasoning",
+        "description": "Practice patterns and clear problem-solving steps.",
+        "topics": [
+          {
+            "id": "reasoning-foundations",
+            "title": "Reasoning foundations",
+            "description": "Work through common verbal and non-verbal reasoning patterns.",
+            "hours": 8,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "reasoning-timed",
+            "title": "Timed reasoning",
+            "description": "Complete short timed sets and review the method behind each error.",
+            "hours": 8,
+            "prerequisites": [
+              "Reasoning foundations"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "english",
+        "title": "English",
+        "description": "Strengthen reading and language accuracy.",
+        "topics": [
+          {
+            "id": "english-reading",
+            "title": "Reading practice",
+            "description": "Read short passages, summarize ideas, and check comprehension.",
+            "hours": 7,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "english-usage",
+            "title": "English usage",
+            "description": "Practice grammar and vocabulary in context.",
+            "hours": 7,
+            "prerequisites": [
+              "Reading practice"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "awareness",
+        "title": "General Awareness",
+        "description": "Use dependable sources and regular revision.",
+        "topics": [
+          {
+            "id": "awareness-notes",
+            "title": "Build concise notes",
+            "description": "Organize broad general awareness topics using reliable sources.",
+            "hours": 8,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "awareness-recall",
+            "title": "Recall and review",
+            "description": "Use short quizzes and revisit weak areas.",
+            "hours": 6,
+            "prerequisites": [
+              "Build concise notes"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "revision",
+        "title": "Practice and Revision",
+        "description": "Bring the subjects together.",
+        "topics": [
+          {
+            "id": "mixed-practice",
+            "title": "Mixed practice",
+            "description": "Attempt mixed sets and analyze accuracy by subject.",
+            "hours": 10,
+            "prerequisites": [
+              "Quantitative practice",
+              "Timed reasoning",
+              "English usage"
+            ],
+            "resourceIds": []
+          },
+          {
+            "id": "revision-plan",
+            "title": "Revision plan",
+            "description": "Create a repeatable review schedule based on mistakes.",
+            "hours": 6,
+            "prerequisites": [
+              "Mixed practice"
+            ],
+            "resourceIds": [
+              "res-ssc"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "exam",
+    "slug": "ibps-po",
+    "title": "IBPS PO preparation roadmap",
+    "overview": "A subject-oriented route for banking aptitude. It is an illustrative learning plan, not an official syllabus or exam pattern.",
+    "stages": [
+      {
+        "id": "numbers",
+        "title": "Quantitative Aptitude",
+        "description": "Establish core numerical skills.",
+        "topics": [
+          {
+            "id": "bank-arithmetic",
+            "title": "Arithmetic foundations",
+            "description": "Practice percentages, ratios, averages, and calculations.",
+            "hours": 9,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "bank-quant",
+            "title": "Applied quantitative sets",
+            "description": "Solve mixed questions and review accuracy.",
+            "hours": 10,
+            "prerequisites": [
+              "Arithmetic foundations"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "logic",
+        "title": "Reasoning Ability",
+        "description": "Build a deliberate problem-solving method.",
+        "topics": [
+          {
+            "id": "bank-reasoning",
+            "title": "Reasoning fundamentals",
+            "description": "Work through logic and pattern exercises with written steps.",
+            "hours": 8,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "bank-puzzles",
+            "title": "Puzzle practice",
+            "description": "Practice multi-step sets and review where time is lost.",
+            "hours": 9,
+            "prerequisites": [
+              "Reasoning fundamentals"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "language",
+        "title": "English Language",
+        "description": "Improve comprehension and usage.",
+        "topics": [
+          {
+            "id": "bank-reading",
+            "title": "Reading comprehension",
+            "description": "Read and summarize passages before answering questions.",
+            "hours": 7,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "bank-english",
+            "title": "Language practice",
+            "description": "Review grammar, vocabulary, and sentence clarity.",
+            "hours": 7,
+            "prerequisites": [
+              "Reading comprehension"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "awareness",
+        "title": "Current Affairs",
+        "description": "Build a consistent reading habit.",
+        "topics": [
+          {
+            "id": "bank-sources",
+            "title": "Choose reliable sources",
+            "description": "Set a weekly reading and note-taking routine.",
+            "hours": 5,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "bank-review",
+            "title": "Weekly recall",
+            "description": "Summarize and revisit key themes without memorizing unsupported claims.",
+            "hours": 6,
+            "prerequisites": [
+              "Choose reliable sources"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "practice",
+        "title": "Practice and Revision",
+        "description": "Combine skills with timed review.",
+        "topics": [
+          {
+            "id": "bank-timed",
+            "title": "Timed mixed sets",
+            "description": "Attempt mixed practice and track weak areas.",
+            "hours": 10,
+            "prerequisites": [
+              "Applied quantitative sets",
+              "Puzzle practice"
+            ],
+            "resourceIds": []
+          },
+          {
+            "id": "bank-revise",
+            "title": "Targeted revision",
+            "description": "Revisit mistakes and adjust the next practice block.",
+            "hours": 6,
+            "prerequisites": [
+              "Timed mixed sets"
+            ],
+            "resourceIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "skill",
+    "slug": "ui-ux-design",
+    "title": "UI/UX Design learning roadmap",
+    "overview": "A project-oriented path from design foundations to a small portfolio case study. Estimated time is a planning guide and varies by learner.",
+    "stages": [
+      {
+        "id": "fundamentals",
+        "title": "Design Fundamentals",
+        "description": "Learn the language of useful interfaces.",
+        "topics": [
+          {
+            "id": "design-principles",
+            "title": "Interface principles",
+            "description": "Study hierarchy, spacing, contrast, and accessible defaults.",
+            "hours": 7,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "design-critique",
+            "title": "Critique an interface",
+            "description": "Describe what works and what creates friction in a familiar app.",
+            "hours": 5,
+            "prerequisites": [
+              "Interface principles"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "research",
+        "title": "User Research",
+        "description": "Understand a real problem before drawing screens.",
+        "topics": [
+          {
+            "id": "research-question",
+            "title": "Frame a user problem",
+            "description": "Write a focused problem statement and assumptions.",
+            "hours": 6,
+            "prerequisites": [],
+            "resourceIds": []
+          },
+          {
+            "id": "research-conversations",
+            "title": "Research conversations",
+            "description": "Prepare open questions and synthesize a few observations.",
+            "hours": 8,
+            "prerequisites": [
+              "Frame a user problem"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "wireframes",
+        "title": "Wireframing",
+        "description": "Explore structure quickly.",
+        "topics": [
+          {
+            "id": "user-flow",
+            "title": "Map a task flow",
+            "description": "Outline the steps a user takes to complete one task.",
+            "hours": 5,
+            "prerequisites": [
+              "Frame a user problem"
+            ],
+            "resourceIds": []
+          },
+          {
+            "id": "low-fi",
+            "title": "Low-fidelity wireframes",
+            "description": "Sketch multiple layouts and choose one to test.",
+            "hours": 8,
+            "prerequisites": [
+              "Map a task flow"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "visual",
+        "title": "Visual Design",
+        "description": "Turn structure into a consistent interface.",
+        "topics": [
+          {
+            "id": "visual-system",
+            "title": "Create a visual system",
+            "description": "Define type, color, spacing, and basic components.",
+            "hours": 8,
+            "prerequisites": [
+              "Low-fidelity wireframes"
+            ],
+            "resourceIds": [
+              "res-figma-playlist"
+            ]
+          },
+          {
+            "id": "high-fi",
+            "title": "Design key screens",
+            "description": "Apply the system to a small set of connected screens.",
+            "hours": 10,
+            "prerequisites": [
+              "Create a visual system"
+            ],
+            "resourceIds": [
+              "res-figma"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prototype",
+        "title": "Prototyping",
+        "description": "Make the flow testable.",
+        "topics": [
+          {
+            "id": "prototype-flow",
+            "title": "Build a prototype",
+            "description": "Link key screens and make primary actions clear.",
+            "hours": 8,
+            "prerequisites": [
+              "Design key screens"
+            ],
+            "resourceIds": [
+              "res-figma-playlist"
+            ]
+          },
+          {
+            "id": "usability-check",
+            "title": "Run a usability check",
+            "description": "Watch someone attempt the task and record friction.",
+            "hours": 6,
+            "prerequisites": [
+              "Build a prototype"
+            ],
+            "resourceIds": []
+          }
+        ]
+      },
+      {
+        "id": "portfolio",
+        "title": "Portfolio Project",
+        "description": "Explain the work and what changed.",
+        "topics": [
+          {
+            "id": "iterate",
+            "title": "Refine the design",
+            "description": "Use test observations to improve the interface.",
+            "hours": 8,
+            "prerequisites": [
+              "Run a usability check"
+            ],
+            "resourceIds": []
+          },
+          {
+            "id": "case-study",
+            "title": "Write a case study",
+            "description": "Document the problem, process, decisions, and outcome.",
+            "hours": 8,
+            "prerequisites": [
+              "Refine the design"
+            ],
+            "resourceIds": []
+          }
+        ]
+      }
+    ]
+  }
+]

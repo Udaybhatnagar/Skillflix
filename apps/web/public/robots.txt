@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /my-learning
+Disallow: /profile
+Disallow: /learn/
+Disallow: /login
+Disallow: /signup
+Disallow: /auth/
