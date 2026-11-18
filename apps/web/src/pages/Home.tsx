@@ -1,4 +1,4 @@
-import { ArrowRight, Compass, Library, Map } from 'lucide-react';
+import { ArrowRight, Compass, Library, Map, Check, Play, BookOpen, Sparkles } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CatalogCard, ResourceCard } from '../components/shared/Cards';
@@ -6,8 +6,10 @@ import { Loading, ErrorState } from '../components/shared/States';
 import { useApi } from '../hooks/useApi';
 import { api } from '../services/api';
 import { useLanguage } from '../context/Language';
+import { useAuth } from '../context/Auth';
 export function Home() {
   const { t } = useLanguage();
+  const { user, loading: authLoading } = useAuth();
   const [q, setQ] = useState('');
   const navigate = useNavigate();
   const exams = useApi(() => api.catalog('exam'), []);
@@ -20,11 +22,12 @@ export function Home() {
   }
   return (
     <main>
-      <section className="container-site home-hero grid gap-12 border-b border-border py-16 lg:grid-cols-12 lg:py-24">
+      <section className="container-site home-hero grid items-center gap-12 py-14 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-7">
-          <p className="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
-          <h1 className="mt-6 max-w-3xl text-6xl leading-[1.04] sm:text-7xl lg:text-8xl">
-            {t('hero')}
+          <p className="eyebrow">A LITTLE DIRECTION. A LOT OF POSSIBILITY.</p>
+          <h1 className="mt-6 max-w-3xl text-5xl leading-[1.08] sm:text-6xl lg:text-7xl">
+            Your ambition.
+            <br />A clearer <span className="text-blue">way forward.</span>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-8 text-muted">{t('heroCopy')}</p>
           <form
@@ -43,27 +46,119 @@ export function Home() {
               {t('search')} <ArrowRight size={17} />
             </button>
           </form>
-        </div>
-        <aside className="flex flex-col justify-end gap-4 lg:col-span-5">
-          <Link to="/exams" className="group rounded-2xl bg-blue p-7 text-white">
-            <span className="text-xs font-bold uppercase tracking-widest text-softblue">
-              01 / Explore
+          {!authLoading && !user && (
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <Link to="/signup" className="button-primary">
+                Create your free account <ArrowRight size={16} />
+              </Link>
+              <Link to="/login" className="text-sm font-semibold text-blue hover:underline">
+                Already learning? Log in
+              </Link>
+            </div>
+          )}
+          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-xs font-medium text-muted">
+            <span className="flex items-center gap-2">
+              <Check size={14} className="text-blue" />
+              Structured roadmaps
             </span>
-            <h2 className="mt-7 text-3xl">Prepare with a plan.</h2>
-            <p className="mt-3 text-sm leading-6 text-softblue">
-              Find a structured starting point for your preparation.
-            </p>
-            <ArrowRight className="mt-6 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <Link to="/skills" className="group rounded-2xl border border-border bg-white p-7">
-            <span className="eyebrow">02 / Grow</span>
-            <h2 className="mt-7 text-3xl">Build skills that matter.</h2>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Explore practical routes into new work and creative fields.
-            </p>
-            <ArrowRight className="mt-6 text-blue transition-transform group-hover:translate-x-1" />
+            <span className="flex items-center gap-2">
+              <Check size={14} className="text-blue" />
+              Curated lessons
+            </span>
+            <span className="flex items-center gap-2">
+              <Check size={14} className="text-blue" />
+              Progress that stays with you
+            </span>
+          </div>
+        </div>
+        <aside className="learning-board lg:col-span-5" aria-label="Discover your learning path">
+          <div className="flex items-center justify-between border-b border-border pb-5">
+            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted">
+              <Sparkles size={16} className="text-blue" /> The learning studio
+            </span>
+            <span className="rounded-full bg-softblue px-3 py-1 text-[10px] font-semibold text-blue">
+              Find your focus
+            </span>
+          </div>
+          <h2 className="mt-6 text-2xl">Big goals. Small steps.</h2>
+          <p className="mt-2 text-sm text-muted">Pick a direction. We will help you map the rest.</p>
+          <div className="board-path mt-7">
+            <div className="board-step">
+              <span className="board-step-icon">
+                <Compass size={18} />
+              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                  01 / Discover
+                </span>
+                <p className="mt-1 text-sm font-semibold">A goal worth working toward</p>
+              </div>
+            </div>
+            <div className="board-step">
+              <span className="board-step-icon">
+                <Map size={18} />
+              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                  02 / Follow your roadmap
+                </span>
+                <p className="mt-1 text-sm font-semibold">Know exactly what comes next</p>
+              </div>
+            </div>
+            <div className="board-step">
+              <span className="board-step-icon">
+                <Play size={18} />
+              </span>
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-muted">
+                  03 / Learn and grow
+                </span>
+                <p className="mt-1 text-sm font-semibold">One focused lesson at a time</p>
+              </div>
+            </div>
+          </div>
+          <Link to="/skills/ui-ux-design" className="board-feature mt-7">
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/15">
+              <BookOpen size={20} />
+            </span>
+            <div className="flex-1">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-indigo-200">
+                Explore a learning path
+              </p>
+              <p className="mt-1 text-sm font-semibold">UI/UX Design</p>
+            </div>
+            <ArrowRight size={19} />
           </Link>
         </aside>
+      </section>
+      <section
+        className="container-site grid gap-5 pb-6 md:grid-cols-2"
+        aria-label="Two ways to move forward"
+      >
+        <Link to="/exams" className="discovery-tile discovery-exams">
+          <div>
+            <p className="eyebrow">Competitive exams</p>
+            <h2 className="mt-3 text-2xl">Prepare with purpose.</h2>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
+              From the first chapter to final revision. Build a preparation plan you can follow.
+            </p>
+          </div>
+          <span className="discovery-arrow">
+            <ArrowRight size={20} />
+          </span>
+        </Link>
+        <Link to="/skills" className="discovery-tile discovery-skills">
+          <div>
+            <p className="eyebrow">Professional skills</p>
+            <h2 className="mt-3 text-2xl">Make room for what is next.</h2>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
+              Design, code, create. Turn your curiosity into practical skills and new possibilities.
+            </p>
+          </div>
+          <span className="discovery-arrow">
+            <ArrowRight size={20} />
+          </span>
+        </Link>
       </section>
       <section className="container-site py-16">
         <div className="mb-7 flex items-end justify-between gap-4">

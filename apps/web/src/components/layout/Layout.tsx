@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const profileButton = useRef<HTMLButtonElement>(null);
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
   useEffect(() => {
     setOpen(false);
     setProfileOpen(false);
@@ -57,11 +57,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
       <header className="site-header">
-        <div className="container-site flex h-20 items-center justify-between gap-4 lg:gap-8">
+        <div className="container-site flex h-20 items-center justify-between gap-2 sm:gap-4 lg:gap-6">
           <Link
             to="/"
             aria-label="Skillflix home"
-            className="flex shrink-0 items-center gap-2 text-xl font-bold tracking-tight text-white"
+            className="flex shrink-0 items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-white"
           >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-blue text-lg font-bold">
               S
@@ -115,89 +115,108 @@ export function Layout({ children }: { children: React.ReactNode }) {
           >
             {open ? <X size={21} /> : <Menu size={21} />}
           </button>
-          <div className="relative shrink-0" ref={menuRef}>
-            <button
-              ref={profileButton}
-              className="flex items-center gap-2 rounded-full p-1 text-white focus-visible:outline-white"
-              aria-label="Open profile menu"
-              aria-expanded={profileOpen}
-              aria-controls="profile-navigation"
-              onClick={() => {
-                setProfileOpen(!profileOpen);
-                setOpen(false);
-              }}
-            >
-              <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full border-2 border-emerald-200 bg-[#d5f3e8] text-sm font-bold text-ink">
-                {user?.avatar_url ? (
-                  <img src={user.avatar_url} alt="" className="h-full w-full object-cover" />
-                ) : (
-                  initials || <UserRound size={20} />
-                )}
-              </span>
-              <ChevronDown size={14} className={profileOpen ? 'rotate-180' : ''} />
-            </button>
-            {profileOpen && (
-              <div
-                id="profile-navigation"
-                className="absolute right-0 top-full z-50 mt-3 w-64 overflow-hidden rounded-2xl border border-border bg-white text-ink shadow-lg"
+          {loading ? (
+            <div
+              className="h-10 w-24 animate-pulse rounded-full bg-white/10"
+              aria-label="Checking account"
+            />
+          ) : !user ? (
+            <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+              <Link to="/login" className="guest-login">
+                Log in
+              </Link>
+              <Link to="/signup" className="guest-signup">
+                Sign up{' '}
+                <span className="hidden sm:inline" aria-hidden="true">
+                  &rarr;
+                </span>
+              </Link>
+            </div>
+          ) : (
+            <div className="relative shrink-0" ref={menuRef}>
+              <button
+                ref={profileButton}
+                className="flex items-center gap-2 rounded-full p-1 text-white focus-visible:outline-white"
+                aria-label="Open profile menu"
+                aria-expanded={profileOpen}
+                aria-controls="profile-navigation"
+                onClick={() => {
+                  setProfileOpen(!profileOpen);
+                  setOpen(false);
+                }}
               >
-                <div className="border-b border-border px-5 py-4">
-                  <p className="truncate text-sm font-semibold">
-                    {user?.full_name || 'Welcome to Skillflix'}
-                  </p>
-                  <p className="mt-1 truncate text-xs text-muted">
-                    {user?.email || 'Your learning, all in one place.'}
-                  </p>
-                </div>
-                <nav aria-label="Profile navigation" className="grid gap-1 p-2">
-                  <Link className="profile-menu-link" to={user ? '/profile' : '/login'}>
-                    <UserRound size={17} />
-                    {user ? 'My Profile' : 'Log in'}
-                  </Link>
-                  <Link
-                    className="profile-menu-link"
-                    to={user ? '/my-learning' : '/login?returnTo=%2Fmy-learning'}
-                  >
-                    <BookOpen size={17} />
-                    My Learning
-                  </Link>
-                  {user?.role === 'SUPER_ADMIN' && (
-                    <Link className="profile-menu-link" to="/admin/dashboard">
-                      <Settings size={17} />
-                      Admin Dashboard
-                    </Link>
+                <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-full border-2 border-indigo-200 bg-[#e9e8ff] text-sm font-bold text-ink">
+                  {user?.avatar_url ? (
+                    <img src={user.avatar_url} alt="" className="h-full w-full object-cover" />
+                  ) : (
+                    initials || <UserRound size={20} />
                   )}
-                  {!user && (
-                    <Link className="profile-menu-link" to="/signup">
-                      Create Account
+                </span>
+                <ChevronDown size={14} className={profileOpen ? 'rotate-180' : ''} />
+              </button>
+              {profileOpen && (
+                <div
+                  id="profile-navigation"
+                  className="absolute right-0 top-full z-50 mt-3 w-64 overflow-hidden rounded-2xl border border-border bg-white text-ink shadow-lg"
+                >
+                  <div className="border-b border-border px-5 py-4">
+                    <p className="truncate text-sm font-semibold">
+                      {user?.full_name || 'Welcome to Skillflix'}
+                    </p>
+                    <p className="mt-1 truncate text-xs text-muted">
+                      {user?.email || 'Your learning, all in one place.'}
+                    </p>
+                  </div>
+                  <nav aria-label="Profile navigation" className="grid gap-1 p-2">
+                    <Link className="profile-menu-link" to={user ? '/profile' : '/login'}>
+                      <UserRound size={17} />
+                      {user ? 'My Profile' : 'Log in'}
                     </Link>
-                  )}
-                  {user && (
-                    <button
+                    <Link
                       className="profile-menu-link"
-                      onClick={async () => {
-                        try {
-                          await logout();
-                          setProfileOpen(false);
-                          navigate('/');
-                        } catch {
-                          setError('Unable to log out. Please try again.');
-                        }
-                      }}
+                      to={user ? '/my-learning' : '/login?returnTo=%2Fmy-learning'}
                     >
-                      <LogOut size={17} />
-                      Log out
-                    </button>
+                      <BookOpen size={17} />
+                      My Learning
+                    </Link>
+                    {user?.role === 'SUPER_ADMIN' && (
+                      <Link className="profile-menu-link" to="/admin/dashboard">
+                        <Settings size={17} />
+                        Admin Dashboard
+                      </Link>
+                    )}
+                    {!user && (
+                      <Link className="profile-menu-link" to="/signup">
+                        Create Account
+                      </Link>
+                    )}
+                    {user && (
+                      <button
+                        className="profile-menu-link"
+                        onClick={async () => {
+                          try {
+                            await logout();
+                            setProfileOpen(false);
+                            navigate('/');
+                          } catch {
+                            setError('Unable to log out. Please try again.');
+                          }
+                        }}
+                      >
+                        <LogOut size={17} />
+                        Log out
+                      </button>
+                    )}
+                  </nav>
+                  {error && (
+                    <p role="alert" className="p-3 text-sm text-red-700">
+                      {error}
+                    </p>
                   )}
-                </nav>
-                {error && (
-                  <p role="alert" className="p-3 text-sm text-red-700">
-                    {error}
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
         {open && (
           <div id="mobile-navigation" className="container-site border-t border-white/15 pb-5">
