@@ -217,3 +217,11 @@ CREATE TABLE IF NOT EXISTS categories (
   status TEXT NOT NULL DEFAULT 'Published' CHECK (status IN ('Draft','Published','Archived')),
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+CREATE TABLE IF NOT EXISTS user_lesson_notes (
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  resource_id TEXT NOT NULL REFERENCES resources(id) ON DELETE CASCADE,
+  video_key TEXT NOT NULL DEFAULT '',
+  notes TEXT NOT NULL DEFAULT '',
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  PRIMARY KEY(user_id, resource_id, video_key)
+);

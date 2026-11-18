@@ -267,4 +267,43 @@ router.post('/import', async (req, res) => {
     client.release();
   }
 });
+const noteKey = z.object({
+  video: z
+    .string()
+    .regex(/^[A-Za-z0-9_-]{11}$/)
+    .optional(),
+});
+router.get('/notes/:id', async (req, res) => {
+  const key = noteKey.safeParse(req.query);
+  if (!key.success) return res.status(400).json({ error: 'Invalid video' });
+  try {
+    const result = await pool.query(
+      'SELECT notes FROM user_lesson_notes WHERE user_id=$1 AND resource_id=$2 AND video_key=$3',
+      [res.locals.user.id, req.params.id, key.data.video || ''],
+    );
+    res.json({ notes: result.rows[0]?.notes || '' });
+  } catch {
+    res.status(500).json({ error: 'Unable to load notes' });
+  }
+});
+router.put('/notes/:id', async (req, res) => {
+  const key = noteKey.safeParse(req.query);
+  const body = z.object({ notes: z.string().max(20000) }).safeParse(req.body);
+  if (!key.success || !body.success)
+    return res.status(400).json({ error: 'Invalid notes (maximum 20,000 characters)' });
+  try {
+    const resource = await pool.query(
+      "SELECT id FROM resources WHERE id=$1 AND status='Published'",
+      [req.params.id],
+    );
+    if (!resource.rows[0]) return res.status(404).json({ error: 'Resource not found' });
+    await pool.query(
+      'INSERT INTO user_lesson_notes (user_id,resource_id,video_key,notes) VALUES ($1,$2,$3,$4) ON CONFLICT (user_id,resource_id,video_key) DO UPDATE SET notes=EXCLUDED.notes,updated_at=NOW()',
+      [res.locals.user.id, req.params.id, key.data.video || '', body.data.notes],
+    );
+    res.json({ ok: true });
+  } catch {
+    res.status(500).json({ error: 'Unable to save notes' });
+  }
+});
 export default router;

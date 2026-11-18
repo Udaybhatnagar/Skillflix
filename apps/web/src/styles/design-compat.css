@@ -1,0 +1,180 @@
+/* Production integrations for the supplied Skillflix design. */
+.reference-app .container {
+  max-width: 1240px;
+  padding: 0;
+}
+.reference-app .home-hero {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.reference-app .home-hero > div:first-child {
+  padding: 0;
+}
+.reference-app .home-hero .eyebrow {
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+}
+.reference-app .hero-copy h1 {
+  letter-spacing: -4.5px;
+}
+.reference-app .auth-login-link {
+  white-space: nowrap;
+}
+.reference-app .button-primary {
+  background: #7547ea;
+  border: 1px solid #7547ea;
+  box-shadow: none;
+  color: #fff;
+  border-radius: 8px;
+}
+.reference-app .button-outline {
+  border-color: #dfd5ec;
+  color: #624080;
+  background: transparent;
+}
+.reference-app .input {
+  border-color: #ded3ec;
+  border-radius: 8px;
+}
+.reference-app .card {
+  border-color: #e6dfed;
+  box-shadow: none;
+}
+.reference-app .auth-form form {
+  margin-top: 24px;
+}
+.reference-app .auth-form .input {
+  margin-top: 8px;
+  background: #fff;
+}
+.reference-app .auth-form label {
+  color: #695b78;
+  font-size: 12px;
+}
+.reference-app .auth-form h2 {
+  font-size: 32px;
+}
+.reference-app .auth-form .button-primary {
+  min-height: 49px;
+}
+.reference-app .auth-form .button-primary:hover {
+  background: #6135cd;
+}
+.reference-app .lesson-container .youtube-host {
+  height: 100%;
+  width: 100%;
+}
+.reference-app .lesson-container .lesson-main {
+  min-width: 0;
+}
+.reference-app .lesson-container .lesson-sidebar {
+  align-self: start;
+}
+.reference-app .lesson-sidebar ol {
+  padding: 12px;
+  margin: 0;
+  list-style: none;
+}
+.reference-app .lesson-sidebar > h2 {
+  font-size: 20px;
+  padding: 20px 20px 0;
+}
+.reference-app .lesson-sidebar > p {
+  padding: 0 20px;
+}
+.reference-app .lesson-sidebar > .text-sm {
+  font-size: 12px;
+}
+.reference-app .lesson-panel textarea {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid #ded3ec;
+  border-radius: 10px;
+  background: #fff;
+  resize: vertical;
+}
+.reference-app .lesson-sidebar li button {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  padding: 13px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 12px;
+}
+.reference-app .lesson-sidebar li button.current {
+  background: #eee7fa;
+  color: #7547ea;
+}
+.reference-app .lesson-title-row {
+  align-items: start;
+}
+.reference-app .lesson-title-row h2 {
+  font-size: 29px;
+}
+.reference-app .lesson-panel {
+  min-height: 170px;
+}
+.reference-app .lesson-panel h3 {
+  margin-bottom: 14px;
+}
+.reference-app .lesson-panel p {
+  font-size: 13px;
+}
+.reference-app .playlist-grid {
+  align-items: start;
+}
+.reference-app .playlist-card .course-art {
+  height: 190px;
+}
+.reference-app .mobile-menu button {
+  display: block;
+  text-align: left;
+  padding: 12px 0;
+  background: none;
+}
+.reference-app .course-copy p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.reference-app .page-intro + .filter-bar {
+  margin-bottom: 32px;
+}
+.reference-app .profile-form input {
+  width: 100%;
+}
+.reference-app .container-site {
+  padding-top: 40px;
+}
+.reference-app .roadmap-workspace {
+  background-color: #fdfbff;
+}
+.reference-app .account-main {
+  min-width: 0;
+}
+.reference-app .goal-grid .goal-icon {
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 680px) {
+  .reference-app .auth-login-link {
+    display: none;
+  }
+  .reference-app .hero-copy h1 {
+    letter-spacing: -2.8px;
+  }
+  .reference-app .lesson-title-row {
+    display: block;
+  }
+  .reference-app .lesson-title-row .btn {
+    margin-top: 18px;
+  }
+}

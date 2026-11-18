@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#171C36',
-        paper: '#F7F8FC',
-        blue: '#5145CD',
-        softblue: '#EDEBFF',
-        warm: '#FFB09C',
-        border: '#E4E6F0',
-        muted: '#626B82',
+        ink: '#211638',
+        paper: '#FDFCFE',
+        blue: '#7547EA',
+        softblue: '#F2ECFC',
+        warm: '#C6AFE8',
+        border: '#E6DFED',
+        muted: '#81768E',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

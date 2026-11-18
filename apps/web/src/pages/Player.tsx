@@ -7,6 +7,8 @@ import { useLanguage } from '../context/Language';
 import { useApi } from '../hooks/useApi';
 import { api, request } from '../services/api';
 import { ErrorState, Loading, NotFound } from '../components/shared/States';
+import { Bookmark, Layers, Sparkles } from '../design/Common';
+import { LessonNotes } from '../design/LessonNotes';
 interface YTPlayer {
   destroy: () => void;
   getCurrentTime: () => number;
@@ -143,6 +145,7 @@ export function Player() {
   const [playlistVideos, setPlaylistVideos] = useState<string[]>([]);
   const controls = useRef<YTPlayer | null>(null);
   const [message, setMessage] = useState('');
+  const [lessonTab, setLessonTab] = useState('Overview');
   const position = useRef(0);
   useEffect(() => {
     setActive(0);
@@ -223,12 +226,12 @@ export function Player() {
     }
   }
   return (
-    <main className="container-site py-9">
+    <div className="lesson-container">
       <Link to="/resources" className="inline-flex items-center gap-2 text-sm text-blue">
         <ArrowLeft size={16} /> Resource library
       </Link>
-      <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
-        <section className="min-w-0">
+      <div className="lesson-layout mt-7">
+        <section className="lesson-main">
           <YouTubePlayer
             key={resource.id}
             videoId={nativePlaylist ? '' : current?.video_id || resource.video_id || ''}
@@ -247,31 +250,91 @@ export function Player() {
                 }).catch(() => setMessage('Playback position could not be saved'));
             }}
           />
-          <p className="eyebrow mt-7">
-            {resource.kind} · {resource.category}
-          </p>
-          <h1 className="mt-2 text-3xl sm:text-4xl">{current?.title || resource.title}</h1>
-          <p className="mt-4 text-muted">{current?.description || resource.description}</p>
-          <p className="mt-3 text-sm text-muted">
-            Curated by {resource.creator}. Playback and advertisements are controlled by YouTube.
-          </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="lesson-title-row">
+            <div>
+              <span className="eyebrow">
+                LESSON {active + 1} / {resource.language.toUpperCase()}
+              </span>
+              <h2>{current?.title || resource.title}</h2>
+              <p>By {resource.creator}</p>
+            </div>
             <button
-              className="button-primary"
+              className={`btn ${completed ? 'secondary' : ''}`}
               disabled={!trackedCurrent}
               onClick={() => void complete()}
             >
-              <Check size={17} />
               {completed ? t('markIncomplete') : t('markComplete')}
+              <Check className="icon" />
             </button>
-            <a
-              className="button-outline"
-              href={current?.url || resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open on YouTube <ExternalLink size={16} />
-            </a>
+          </div>
+          <div className="tabs" role="tablist">
+            {['Overview', 'Notes', 'Resources'].map((tab) => (
+              <button
+                key={tab}
+                className={lessonTab === tab ? 'active' : ''}
+                role="tab"
+                aria-selected={lessonTab === tab}
+                onClick={() => setLessonTab(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          <div className="lesson-panel">
+            {lessonTab === 'Notes' ? (
+              <LessonNotes
+                key={resource.id + current?.video_id}
+                resourceId={resource.id}
+                videoId={current?.video_id}
+              />
+            ) : lessonTab === 'Overview' ? (
+              <>
+                <h3>Keep the bigger picture in view.</h3>
+                <p>
+                  {current?.description ||
+                    resource.description ||
+                    `This lesson is part of ${resource.title}. Learn at your pace and mark it complete when you are ready.`}
+                </p>
+                <div className="learning-callout">
+                  <span>
+                    <Sparkles className="icon" />
+                  </span>
+                  <div>
+                    <h4>A small practice prompt</h4>
+                    <p>
+                      Write down one key idea, one question, and one way you could use this in your
+                      own project.
+                    </p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <h3>Your supporting resources.</h3>
+                <button
+                  className="resource-link"
+                  onClick={() => learning.toggleResource(resource.id)}
+                >
+                  <Bookmark className="icon" />
+                  {learning.isResourceSaved(resource.id) ? 'Remove bookmark' : 'Save this resource'}
+                </button>
+                {resource.related_slug && (
+                  <Link className="resource-link" to={`/paths?goal=${resource.related_slug}`}>
+                    <Layers className="icon" />
+                    Explore the learning paths
+                  </Link>
+                )}
+                <a
+                  className="resource-link"
+                  href={current?.url || resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Original YouTube source
+                  <ExternalLink className="icon" />
+                </a>
+              </>
+            )}
           </div>
           {current && !trackedCurrent && (
             <p className="mt-4 text-xs text-muted">
@@ -284,16 +347,16 @@ export function Player() {
               {message}
             </p>
           )}
-          <div className="mt-8 flex justify-between border-t border-border pt-5">
+          <div className="lesson-pagination">
             <button
-              className="button-outline"
+              className="btn secondary"
               disabled={active === 0}
               onClick={() => select(active - 1)}
             >
               <ArrowLeft size={16} /> {t('previous')}
             </button>
             <button
-              className="button-outline"
+              className="btn secondary"
               disabled={active >= lessons.length - 1}
               onClick={() => select(active + 1)}
             >
@@ -301,7 +364,18 @@ export function Player() {
             </button>
           </div>
         </section>
-        <aside className="card h-fit lg:sticky lg:top-8">
+        <aside className="lesson-sidebar">
+          <div className="sidebar-heading">
+            <span className="eyebrow">YOUR LEARNING PATH</span>
+            <h3>{resource.title}</h3>
+            <div className="progressbar">
+              <i
+                style={{
+                  width: `${lessons.length ? Math.round((lessons.filter((l) => learning.state.lessons.some((p) => p.resource_id === l.id && p.completed_at)).length / lessons.length) * 100) : 0}%`,
+                }}
+              />
+            </div>
+          </div>
           <h2 className="text-2xl">
             {resource.kind === 'Playlist' ? t('playlistLessons') : t('yourLesson')}
           </h2>
@@ -314,7 +388,7 @@ export function Player() {
               {lessons.map((lesson, index) => (
                 <li key={lesson.id}>
                   <button
-                    className={`w-full rounded-lg p-3 text-left text-sm ${index === active ? 'bg-softblue text-blue' : 'hover:bg-paper'}`}
+                    className={index === active ? 'current' : ''}
                     onClick={() => select(index)}
                   >
                     <span className="mr-2 font-semibold">{index + 1}.</span>
@@ -335,6 +409,6 @@ export function Player() {
           )}
         </aside>
       </div>
-    </main>
+    </div>
   );
 }

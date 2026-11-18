@@ -9,25 +9,34 @@ import { AuthCallback, ForgotPassword } from '../components/auth/AuthForm';
 import { AuthDialog } from '../components/auth/AuthDialog';
 import { useAuth } from '../context/Auth';
 import { LoginPage, SignupPage } from '../pages/AuthPages';
-import { Profile } from '../pages/Profile';
+import { Profile, Saved, Onboarding, Learning as MyLearning } from '../design/Account';
 import { Contact, Privacy, Terms } from '../pages/Info';
 const Player = lazy(() => import('../pages/Player').then((m) => ({ default: m.Player })));
 const AdminApp = lazy(() => import('../admin/AdminApp').then((m) => ({ default: m.AdminApp })));
 import { About } from '../pages/About';
-import { Catalog } from '../pages/Catalog';
-import { Courses } from '../pages/Courses';
-import { Detail } from '../pages/Detail';
-import { Home } from '../pages/Home';
-import { MyLearning } from '../pages/MyLearning';
-import { Resources } from '../pages/Resources';
+import {
+  Paths as Catalog,
+  Categories,
+  Paths as Courses,
+  ReferenceHome as Home,
+  Playlists as Resources,
+} from '../design/Discovery';
+
+import { PathDetail as Detail, PlaylistDetail } from '../design/PathDetail';
+
 import { RoadmapPage } from '../pages/Roadmap';
-import { Search } from '../pages/Search';
-import { Teachers } from '../pages/Teachers';
-import { TeacherProfile } from '../pages/TeacherProfile';
+import { ReferenceSearch as Search } from '../design/Search';
+import { Teachers, TeacherProfile } from '../design/Teachers';
+
 const titles: Record<string, string> = {
   '/': 'Home',
   '/exams': 'Competitive Exams',
   '/courses': 'Explore Courses',
+  '/paths': 'Learning paths',
+  '/categories': 'Explore categories',
+  '/playlists': 'Curated playlists',
+  '/saved': 'Saved resources',
+  '/onboarding': 'Your learning goal',
   '/skills': 'Professional Skills',
   '/resources': 'Resources',
   '/teachers': 'Educators',
@@ -49,20 +58,26 @@ function PageMeta() {
       titles[pathname] ||
       (pathname.startsWith('/admin/')
         ? 'Administration'
-        : pathname.startsWith('/learn/')
-          ? 'Learning player'
-          : pathname.startsWith('/roadmap/')
-            ? 'Learning Roadmap'
-            : pathname.startsWith('/teachers/')
-              ? 'Educator Profile'
-              : pathname.startsWith('/exams/')
-                ? 'Exam Guide'
-                : pathname.startsWith('/skills/')
-                  ? 'Skill Path'
-                  : 'Page not found');
+        : pathname.startsWith('/category/')
+          ? 'Explore category'
+          : pathname.startsWith('/playlist/')
+            ? 'Curated playlist'
+            : pathname.startsWith('/learn/')
+              ? 'Learning player'
+              : pathname.startsWith('/roadmap/')
+                ? 'Learning Roadmap'
+                : pathname.startsWith('/teachers/')
+                  ? 'Educator Profile'
+                  : pathname.startsWith('/exams/')
+                    ? 'Exam Guide'
+                    : pathname.startsWith('/skills/')
+                      ? 'Skill Path'
+                      : 'Page not found');
     document.title = `${title} | Skillflix`;
     const privateRoute =
-      /^\/(admin|my-learning|profile|learn|login|signup|auth|forgot-password)(\/|$)/.test(pathname);
+      /^\/(admin|my-learning|profile|saved|learn|login|signup|auth|forgot-password)(\/|$)/.test(
+        pathname,
+      );
     const setMeta = (name: string, content: string) => {
       let tag = document.head.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
       if (!tag) {
@@ -126,11 +141,19 @@ export function App() {
                       <Route path="/" element={<Home />} />
                       <Route path="/exams" element={<Catalog kind="exam" />} />
                       <Route path="/courses" element={<Courses />} />
+                      <Route path="/paths" element={<Courses />} />
+                      <Route path="/categories" element={<Categories />} />
+                      <Route path="/category/:id" element={<Courses />} />
+                      <Route path="/playlists" element={<Resources />} />
+                      <Route path="/playlist/:slug" element={<PlaylistDetail />} />
+                      <Route path="/saved" element={<Saved />} />
+                      <Route path="/onboarding" element={<Onboarding />} />
+                      <Route path="/signin" element={<LoginPage />} />
                       <Route path="/exams/:slug" element={<Detail kind="exam" />} />
                       <Route path="/skills" element={<Catalog kind="skill" />} />
                       <Route path="/skills/:slug" element={<Detail kind="skill" />} />
                       <Route path="/roadmap/:type/:slug" element={<RoadmapPage />} />
-                      <Route path="/resources" element={<Resources />} />
+                      <Route path="/resources" element={<Resources all />} />
                       <Route path="/teachers" element={<Teachers />} />
                       <Route path="/teachers/:slug" element={<TeacherProfile />} />
                       <Route path="/my-learning" element={<MyLearning />} />
