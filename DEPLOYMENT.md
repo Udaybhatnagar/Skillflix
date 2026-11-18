@@ -11,7 +11,7 @@ Create a Neon PostgreSQL project and copy its TLS connection string from the Con
 1. New → Web Service → connect `Udaybhatnagar/Skillflix`.
 2. Branch: `main`. Runtime: Node. Leave Root Directory blank (repository root).
 3. Build Command: `npm ci --include=dev && npm run build -w @skillflix/api`.
-4. Start Command: `node apps/api/dist/index.js`.
+4. Start Command: `node apps/api/dist/bootstrap.js`.
 5. Health Check Path: `/api/health`.
 6. Set environment variables:
    - `NODE_ENV=production`
@@ -20,7 +20,9 @@ Create a Neon PostgreSQL project and copy its TLS connection string from the Con
    - `NODE_VERSION=22`
 7. Deploy and copy the API origin, such as `https://YOUR-API.onrender.com`.
 
-Initialize the database once using the backend Shell:
+The bootstrap start command runs migrations automatically and seeds content only when the database has no courses. It records initialization so future starts preserve managed content. If `ADMIN_EMAIL` and `ADMIN_PASSWORD` are set and no Super Admin exists, it provisions that first administrator too. This works on Render without Shell access. `DATABASE_URL` must point to a working PostgreSQL database before startup.
+
+If using the basic `index.js` start command instead, initialize the database once using the backend Shell:
 
 ```sh
 node apps/api/dist/db/migrate.js
