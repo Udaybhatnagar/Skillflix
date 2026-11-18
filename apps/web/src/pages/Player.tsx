@@ -7,7 +7,7 @@ import { useLanguage } from '../context/Language';
 import { useApi } from '../hooks/useApi';
 import { api, request } from '../services/api';
 import { ErrorState, Loading, NotFound } from '../components/shared/States';
-import { Bookmark, Layers, Sparkles } from '../design/Common';
+import { Bookmark, Layers, Sparkles, Play } from '../design/Common';
 import { LessonNotes } from '../design/LessonNotes';
 interface YTPlayer {
   destroy: () => void;
@@ -230,8 +230,83 @@ export function Player() {
       <Link to="/resources" className="inline-flex items-center gap-2 text-sm text-blue">
         <ArrowLeft size={16} /> Resource library
       </Link>
-      <div className="lesson-layout mt-7">
+      <div className="lesson-layout concept-lesson-layout mt-7">
+        <aside className="concept-course-sidebar">
+          <div className="concept-course-heading">
+            <Layers className="icon" />
+            <h3>{resource.title}</h3>
+            <p>
+              {resource.category} / {resource.level}
+            </p>
+          </div>
+          <div className="concept-course-progress">
+            <strong>Course Progress</strong>
+            <p>
+              {
+                lessons.filter((l) =>
+                  learning.state.lessons.some((p) => p.resource_id === l.id && p.completed_at),
+                ).length
+              }{' '}
+              of {lessons.length} lessons completed
+            </p>
+            <div className="progressbar">
+              <i
+                style={{
+                  width: `${lessons.length ? Math.round((lessons.filter((l) => learning.state.lessons.some((p) => p.resource_id === l.id && p.completed_at)).length / lessons.length) * 100) : 0}%`,
+                }}
+              />
+            </div>
+          </div>
+          <details open>
+            <summary>1. {resource.title}</summary>
+            <ol>
+              {lessons.map((lesson, index) => (
+                <li key={lesson.id}>
+                  <button
+                    className={index === active ? 'current' : ''}
+                    onClick={() => select(index)}
+                  >
+                    <span>
+                      {learning.state.lessons.some(
+                        (p) => p.resource_id === lesson.id && p.completed_at,
+                      ) ? (
+                        <Check className="icon" />
+                      ) : (
+                        <Play className="icon" />
+                      )}
+                    </span>
+                    <span>
+                      {index + 1}. {lesson.title}
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ol>
+          </details>
+          <div className="concept-course-tip">
+            <Sparkles className="icon" />
+            <strong>Keep going! You are doing great.</strong>
+            <p>Take it one lesson at a time. Your next step is right here.</p>
+          </div>
+        </aside>
         <section className="lesson-main">
+          <div className="lesson-title-row">
+            <div>
+              <span className="eyebrow">
+                LESSON {active + 1} / {resource.language.toUpperCase()}
+              </span>
+              <h2>{current?.title || resource.title}</h2>
+              <p>By {resource.creator}</p>
+            </div>
+            <button
+              className={`btn ${completed ? 'secondary' : ''}`}
+              disabled={!trackedCurrent}
+              onClick={() => void complete()}
+            >
+              {completed ? t('markIncomplete') : t('markComplete')}
+              <Check className="icon" />
+            </button>
+          </div>
           <YouTubePlayer
             key={resource.id}
             videoId={nativePlaylist ? '' : current?.video_id || resource.video_id || ''}
@@ -250,21 +325,32 @@ export function Player() {
                 }).catch(() => setMessage('Playback position could not be saved'));
             }}
           />
-          <div className="lesson-title-row">
-            <div>
-              <span className="eyebrow">
-                LESSON {active + 1} / {resource.language.toUpperCase()}
-              </span>
-              <h2>{current?.title || resource.title}</h2>
-              <p>By {resource.creator}</p>
-            </div>
+          <div className="concept-video-actions">
+            <button className="btn secondary" onClick={() => learning.toggleResource(resource.id)}>
+              <Bookmark className="icon" />
+              {learning.isResourceSaved(resource.id) ? 'Saved' : 'Save'}
+            </button>
             <button
-              className={`btn ${completed ? 'secondary' : ''}`}
-              disabled={!trackedCurrent}
-              onClick={() => void complete()}
+              className="btn secondary"
+              onClick={async () => {
+                try {
+                  await navigator.clipboard.writeText(location.href);
+                  setMessage('Lesson link copied.');
+                } catch {
+                  setMessage('Copy this page URL to share the lesson.');
+                }
+              }}
             >
-              {completed ? t('markIncomplete') : t('markComplete')}
-              <Check className="icon" />
+              Share lesson
+              <ExternalLink className="icon" />
+            </button>
+            <button
+              className="btn"
+              disabled={active >= lessons.length - 1}
+              onClick={() => select(active + 1)}
+            >
+              Next Lesson
+              <ArrowRight className="icon" />
             </button>
           </div>
           <div className="tabs" role="tablist">
@@ -364,7 +450,7 @@ export function Player() {
             </button>
           </div>
         </section>
-        <aside className="lesson-sidebar">
+        <aside className="lesson-sidebar concept-lesson-right">
           <div className="sidebar-heading">
             <span className="eyebrow">YOUR LEARNING PATH</span>
             <h3>{resource.title}</h3>
@@ -407,6 +493,50 @@ export function Player() {
                 : 'No curated lessons have been added yet.'}
             </p>
           )}
+          <div className="concept-lesson-toolbox">
+            <h3>Learning Tools</h3>
+            <p>Keep your ideas and resources together.</p>
+            <button
+              className="btn secondary full"
+              onClick={() => {
+                setLessonTab('Notes');
+                document
+                  .querySelector('.lesson-panel')
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }}
+            >
+              Create lesson notes
+            </button>
+            <button className="btn secondary full" onClick={() => setLessonTab('Resources')}>
+              View supporting resources
+            </button>
+          </div>
+          <div className="concept-lesson-toolbox">
+            <h3>Your Progress</h3>
+            <div className="concept-progress-number">
+              {lessons.length
+                ? Math.round(
+                    (lessons.filter((l) =>
+                      learning.state.lessons.some((p) => p.resource_id === l.id && p.completed_at),
+                    ).length /
+                      lessons.length) *
+                      100,
+                  )
+                : 0}
+              %
+            </div>
+            <p>
+              {
+                lessons.filter((l) =>
+                  learning.state.lessons.some((p) => p.resource_id === l.id && p.completed_at),
+                ).length
+              }{' '}
+              of {lessons.length} lessons complete
+            </p>
+            <Link className="text-link" to="/my-learning">
+              View Full Progress <ArrowRight className="icon" />
+            </Link>
+          </div>
         </aside>
       </div>
     </div>

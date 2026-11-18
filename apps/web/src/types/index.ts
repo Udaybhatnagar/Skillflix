@@ -1,4 +1,5 @@
 export interface CatalogItem {
+  thumbnail_url?: string | null;
   id: string;
   kind: 'exam' | 'skill';
   slug: string;

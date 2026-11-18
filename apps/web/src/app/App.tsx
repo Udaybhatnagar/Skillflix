@@ -14,18 +14,17 @@ import { Contact, Privacy, Terms } from '../pages/Info';
 const Player = lazy(() => import('../pages/Player').then((m) => ({ default: m.Player })));
 const AdminApp = lazy(() => import('../admin/AdminApp').then((m) => ({ default: m.AdminApp })));
 import { About } from '../pages/About';
-import {
-  Paths as Catalog,
-  Categories,
-  Paths as Courses,
-  ReferenceHome as Home,
-  Playlists as Resources,
-} from '../design/Discovery';
+import { Paths as Catalog, Paths as Courses } from '../design/Discovery';
 
 import { PathDetail as Detail, PlaylistDetail } from '../design/PathDetail';
 
 import { RoadmapPage } from '../pages/Roadmap';
 import { ReferenceSearch as Search } from '../design/Search';
+import {
+  ConceptHome as Home,
+  ConceptCategories as Categories,
+  ConceptPlaylists as Resources,
+} from '../design/Concept';
 import { Teachers, TeacherProfile } from '../design/Teachers';
 
 const titles: Record<string, string> = {

@@ -24,6 +24,14 @@ import {
 } from './Common';
 export const categories = [
   {
+    id: 'ai',
+    name: 'AI / Machine Learning',
+    subtitle: 'Explore intelligent systems.',
+    topics: 'AI / Machine Learning / Models',
+    icon: Sparkles,
+    theme: 'violet',
+  },
+  {
     id: 'design',
     name: 'Design',
     subtitle: 'Make ideas feel intuitive.',
@@ -62,6 +70,54 @@ export const categories = [
     topics: 'SSC · Banking · Civil services',
     icon: BookOpen,
     theme: 'yellow',
+  },
+  {
+    id: 'productivity',
+    name: 'Productivity',
+    subtitle: 'Make more of your time.',
+    topics: 'Planning / Workflows / Habits',
+    icon: Layers,
+    theme: 'yellow',
+  },
+  {
+    id: 'data-science',
+    name: 'Data Science',
+    subtitle: 'Find meaning in data.',
+    topics: 'Analysis / Statistics / Visualisation',
+    icon: Code,
+    theme: 'cyan',
+  },
+  {
+    id: 'cyber-security',
+    name: 'Cyber Security',
+    subtitle: 'Understand digital security.',
+    topics: 'Networks / Security / Systems',
+    icon: BookOpen,
+    theme: 'mint',
+  },
+  {
+    id: 'finance',
+    name: 'Finance',
+    subtitle: 'Build financial understanding.',
+    topics: 'Finance / Accounting / Planning',
+    icon: Layers,
+    theme: 'yellow',
+  },
+  {
+    id: 'languages',
+    name: 'Language Learning',
+    subtitle: 'Open up new conversations.',
+    topics: 'Language / Communication',
+    icon: BookOpen,
+    theme: 'pink',
+  },
+  {
+    id: 'school',
+    name: 'School Subjects',
+    subtitle: 'Strengthen your foundations.',
+    topics: 'Maths / Science / Fundamentals',
+    icon: PenTool,
+    theme: 'pink',
   },
 ];
 export const inCategory = (category: string, kind: string, id: string) =>
@@ -322,7 +378,7 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
         (level === 'all' || x.level === level),
     ) || [];
   return (
-    <div className="container">
+    <div className="container concept-paths">
       {selected ? (
         <section className={`category-hero ${selected.theme}`}>
           <div>
@@ -357,7 +413,11 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
       ) : (
         <Intro
           eyebrow={kind === 'exam' ? 'COMPETITIVE EXAMS' : 'LEARNING PATHS'}
-          title="A goal becomes a roadmap."
+          title={
+            <>
+              Learning <span>Paths</span>
+            </>
+          }
           description="See what to learn, in what order, and what you can build along the way."
         />
       )}
@@ -412,11 +472,46 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
       ) : paths.error ? (
         <ErrorState message={paths.error} />
       ) : visible.length ? (
-        <div className="course-grid">
-          {visible.map((x) => (
-            <PathCard key={x.id} item={x} />
-          ))}
-        </div>
+        <>
+          <SectionHead eyebrow="" title="Explore Learning Paths" />
+          <div className="concept-path-grid">
+            {visible.slice(0, 4).map((x) => (
+              <PathCard key={x.id} item={x} />
+            ))}
+          </div>
+          <section className="concept-section">
+            <SectionHead eyebrow="" title="All Learning Paths" />
+            <div className="concept-all-paths">
+              {visible.map((c) => (
+                <Link key={c.id} to={`/${c.kind === 'exam' ? 'exams' : 'skills'}/${c.slug}`}>
+                  <span className={`category-icon ${c.category === 'Design' ? 'violet' : 'cyan'}`}>
+                    <Layers className="icon" />
+                  </span>
+                  <div>
+                    <h3>{c.title}</h3>
+                    <p>{c.summary}</p>
+                  </div>
+                  <span>
+                    <Layers className="icon" />
+                    {c.modules.length} modules
+                  </span>
+                  <span>{c.duration || 'Self-paced'}</span>
+                  <b>
+                    Start Path <ArrowUpRight className="icon" />
+                  </b>
+                </Link>
+              ))}
+            </div>
+          </section>
+          <div className="concept-help-banner">
+            <div>
+              <h2>New to learning paths?</h2>
+              <p>Choose a path and we will guide you step by step.</p>
+              <Button to="/onboarding">Find your direction</Button>
+            </div>
+            <Layers />
+          </div>
+        </>
       ) : (
         <EmptyState
           title="No paths match these filters."

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/Auth';
 import { useLearning } from '../../context/LearningState';
+import { SearchSuggestions } from '../shared/SearchSuggestions';
 import {
   Search,
   Bookmark,
@@ -14,10 +15,10 @@ import {
   User,
 } from '../../design/Common';
 const links = [
-  ['Explore', '/categories'],
+  ['Categories', '/categories'],
   ['Learning paths', '/paths'],
   ['Playlists', '/playlists'],
-  ['My learning', '/my-learning'],
+  ['Creators', '/teachers'],
 ];
 function Logo() {
   return (
@@ -29,10 +30,25 @@ function Logo() {
 }
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  const { pathname } = useLocation();
+  const { pathname, search: currentSearch } = useLocation();
   const { user, logout } = useAuth();
   const { state } = useLearning();
   const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+  const searchRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    setQuery(pathname === '/search' ? new URLSearchParams(currentSearch).get('q') || '' : '');
+  }, [pathname, currentSearch]);
+  useEffect(() => {
+    const shortcut = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', shortcut);
+    return () => document.removeEventListener('keydown', shortcut);
+  }, []);
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
@@ -52,7 +68,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </nav>
           <div className="nav-actions">
-            <Link className="icon-btn" to="/search" aria-label="Search">
+            <form
+              className="concept-nav-search"
+              role="search"
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (query.trim()) navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+              }}
+            >
+              <Search className="icon" />
+              <input
+                ref={searchRef}
+                aria-label="Search skills, topics, or playlists"
+                placeholder="Search for skills, topics or playlists..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <kbd>Ctrl K</kbd>
+              <SearchSuggestions query={query} onSelect={() => setQuery('')} />
+            </form>
+            <Link className="icon-btn concept-mobile-search" to="/search" aria-label="Search">
               <Search className="icon" />
             </Link>
             <Link className="icon-btn save-nav" to="/saved" aria-label="Saved resources">
@@ -71,7 +106,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   Log in
                 </Link>
                 <Link className="btn small" to="/signup">
-                  Get started <ArrowUpRight className="icon" />
+                  Sign up <ArrowUpRight className="icon" />
                 </Link>
               </>
             )}

@@ -65,14 +65,26 @@ export function Art({
   title,
   category,
   large = false,
+  src,
 }: {
   title: string;
   category: string;
   large?: boolean;
+  src?: string | null;
 }) {
   return (
     <div className={`course-art media-art ${themeFor(category)} ${large ? 'large' : ''}`}>
-      <img src={imageFor(category)} alt={`${title} learning illustration`} loading="lazy" />
+      <img
+        src={
+          src
+            ? src.startsWith('/api/')
+              ? `${import.meta.env.VITE_API_URL || ''}${src}`
+              : src
+            : imageFor(category)
+        }
+        alt={`${title} learning illustration`}
+        loading="lazy"
+      />
       <span className="media-caption">{title}</span>
       <span className="media-badge">
         <Play className="icon" /> LEARNING PATH
@@ -168,7 +180,7 @@ export function PathCard({ item }: { item: CatalogItem }) {
   return (
     <article className="course-card">
       <Link className="art-link" to={pathUrl(item)} aria-label={`Explore ${item.title}`}>
-        <Art title={item.title} category={item.category} />
+        <Art title={item.title} category={item.category} src={item.thumbnail_url} />
       </Link>
       <div className="course-copy">
         <div className="eyebrow muted">
@@ -215,7 +227,24 @@ export function PlaylistCard({ resource }: { resource: Resource }) {
         className="art-link"
         to={resource.kind === 'Playlist' ? `/playlist/${resource.slug}` : `/learn/${resource.slug}`}
       >
-        <Art title={resource.title} category={resource.category} />
+        <div className="resource-thumbnail">
+          <img
+            src={
+              resource.thumbnail_url
+                ? resource.thumbnail_url.startsWith('/api/')
+                  ? `${import.meta.env.VITE_API_URL || ''}${resource.thumbnail_url}`
+                  : resource.thumbnail_url
+                : resource.video_id
+                  ? `https://i.ytimg.com/vi/${resource.video_id}/hqdefault.jpg`
+                  : imageFor(resource.category)
+            }
+            alt={resource.title}
+            loading="lazy"
+          />
+          <span>
+            <Play className="icon" />
+          </span>
+        </div>
       </Link>
       <div className="course-copy">
         <span className="eyebrow muted">
