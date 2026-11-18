@@ -1,5 +1,7 @@
 # Skillflix
 
+For Vercel frontend and Render/Railway backend hosting, follow [DEPLOYMENT.md](DEPLOYMENT.md). Use the root Vercel configuration and API proxy described there for that hosting setup.
+
 A learning platform built with React, TypeScript, Vite, Tailwind CSS, Node.js, Express, and PostgreSQL. Public discovery, account based learning progress, a Super Admin content workspace, and an embedded YouTube learning player live in one workspace.
 
 ## Project structure

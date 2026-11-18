@@ -22,6 +22,10 @@ app.use((req, res, next) => {
   next();
 });
 app.use(express.json({ limit: '100kb' }));
+app.use(['/api/auth', '/api/me', '/api/admin'], (_req, res, next) => {
+  res.setHeader('Cache-Control', 'private, no-store');
+  next();
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/me/learning', learningRoutes);
 app.use('/api/admin/roadmaps', adminRoadmaps);
