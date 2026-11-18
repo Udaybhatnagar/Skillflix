@@ -7,6 +7,7 @@ import { pool } from '../db/pool.js';
 import { emailConfigured, sendAuthEmail } from './mail.js';
 import { clearSession, createSession, currentUser, requireUser } from './session.js';
 import { hashPassword, randomToken, tokenHash, verifyPassword } from './security.js';
+import { webOrigin } from '../config/origin.js';
 const router = Router();
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -31,7 +32,7 @@ const signup = z
     message: 'Passwords do not match',
     path: ['confirmPassword'],
   });
-const frontend = () => process.env.WEB_ORIGIN || 'http://localhost:5173';
+const frontend = () => webOrigin;
 const safeUserQuery =
   'SELECT id,full_name,email,avatar_url,role,preferred_language,status,created_at,verified_at FROM users WHERE id=$1';
 async function issueToken(

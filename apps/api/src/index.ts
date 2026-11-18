@@ -7,16 +7,17 @@ import learningRoutes from './learning/routes.js';
 import publicRoutes from './public/routes.js';
 import adminRoutes from './admin/routes.js';
 import adminRoadmaps from './admin/roadmaps.js';
+import { webOrigin } from './config/origin.js';
 const app = express();
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
 app.use(helmet());
-app.use(cors({ origin: process.env.WEB_ORIGIN || 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: webOrigin, credentials: true }));
 app.use((req, res, next) => {
   if (
     !['GET', 'HEAD', 'OPTIONS'].includes(req.method) &&
     req.headers.origin &&
-    req.headers.origin !== (process.env.WEB_ORIGIN || 'http://localhost:5173')
+    req.headers.origin !== webOrigin
   )
     return res.status(403).json({ error: 'Origin not allowed' });
   next();
