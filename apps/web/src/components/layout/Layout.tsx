@@ -3,28 +3,26 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/Auth';
 import { useLearning } from '../../context/LearningState';
 import { SearchSuggestions } from '../shared/SearchSuggestions';
-import {
-  Search,
-  Bookmark,
-  ArrowUpRight,
-  Menu,
-  X,
-  Home,
-  Layers,
-  BookOpen,
-  User,
-} from '../../design/Common';
+import { Search, Bookmark, Menu, X, Home, Layers, BookOpen, User } from '../../design/Common';
+import { figmaAssets } from '../../design/FigmaAssets';
 const links = [
-  ['Categories', '/categories'],
-  ['Learning paths', '/paths'],
+  ['Home', '/'],
+  ['Explore', '/categories'],
+  ['Paths', '/paths'],
   ['Playlists', '/playlists'],
   ['Creators', '/teachers'],
+  ['Community', '/about'],
 ];
 function Logo() {
   return (
     <Link className="logo" to="/" aria-label="Skillflix home">
-      <span className="logomark" />
-      skillflix<span className="logodot">.</span>
+      <span className="figma-logo-mark">
+        <img src={figmaAssets.logo} alt="" />
+        <span>▶</span>
+      </span>
+      <span>
+        Skill<span className="figma-wordmark-accent">Flix</span>
+      </span>
     </Link>
   );
 }
@@ -53,7 +51,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
     setOpen(false);
   }, [pathname]);
   return (
-    <div className="reference-app">
+    <div
+      className={`reference-app figma-app ${pathname === '/' ? 'figma-home-shell' : 'figma-inner-shell'} ${/^\/(login|signup|signin)/.test(pathname) ? 'figma-auth-shell' : ''} ${/^\/(my-learning|saved|profile)/.test(pathname) ? 'figma-account-shell' : ''}`}
+    >
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -62,7 +62,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Logo />
           <nav className="desktop-nav" aria-label="Main navigation">
             {links.map(([label, to]) => (
-              <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink
+                key={to}
+                to={to}
+                end={to === '/'}
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
                 {label}
               </NavLink>
             ))}
@@ -74,6 +79,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               onSubmit={(e) => {
                 e.preventDefault();
                 if (query.trim()) navigate(`/search?q=${encodeURIComponent(query.trim())}`);
+                searchRef.current?.blur();
               }}
             >
               <Search className="icon" />
@@ -90,12 +96,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link className="icon-btn concept-mobile-search" to="/search" aria-label="Search">
               <Search className="icon" />
             </Link>
-            <Link className="icon-btn save-nav" to="/saved" aria-label="Saved resources">
-              <Bookmark className="icon" />
-              {state.courseIds.length + state.resourceIds.length > 0 && (
-                <sup>{state.courseIds.length + state.resourceIds.length}</sup>
-              )}
-            </Link>
+            {user && (
+              <Link className="figma-my-learning" to="/my-learning">
+                My Learning
+              </Link>
+            )}
+            {user && (
+              <Link className="icon-btn save-nav" to="/saved" aria-label="Saved resources">
+                <Bookmark className="icon" />
+                {state.courseIds.length + state.resourceIds.length > 0 && (
+                  <sup>{state.courseIds.length + state.resourceIds.length}</sup>
+                )}
+              </Link>
+            )}
             {user ? (
               <Link className="avatar" to="/profile" aria-label="Your profile">
                 {user.full_name[0].toUpperCase()}
@@ -103,10 +116,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             ) : (
               <>
                 <Link className="text-link auth-login-link" to="/login">
-                  Log in
+                  Sign in
                 </Link>
                 <Link className="btn small" to="/signup">
-                  Sign up <ArrowUpRight className="icon" />
+                  Sign up
                 </Link>
               </>
             )}
@@ -152,12 +165,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <Logo />
             <p>
-              A little less searching.
-              <br />A little more possibility.
+              Your companion for free
+              <br />
+              and structured learning.
             </p>
           </div>
           <div>
-            <b>DISCOVER</b>
+            <b>Explore</b>
             <Link to="/categories">Explore categories</Link>
             <Link to="/paths">Learning paths</Link>
             <Link to="/playlists">Curated playlists</Link>
@@ -165,17 +179,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link to="/exams">Competitive exams</Link>
           </div>
           <div>
-            <b>YOUR SPACE</b>
+            <b>Your learning</b>
             <Link to="/my-learning">My learning</Link>
             <Link to="/saved">Saved resources</Link>
             <Link to="/profile">Your profile</Link>
           </div>
           <div>
-            <b>SKILLFLIX</b>
+            <b>Company</b>
             <Link to="/about">About Skillflix</Link>
             <Link to="/contact">Contact</Link>
             <Link to="/privacy">Privacy policy</Link>
             <Link to="/terms">Terms of service</Link>
+          </div>
+          <div className="figma-footer-legal">
+            <b>Legal</b>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Use</Link>
+          </div>
+          <div className="figma-footer-connect">
+            <b>Stay Connected</b>
+            <Link to="/teachers">Meet the creators</Link>
+            <Link to="/contact">Contact Skillflix</Link>
           </div>
         </div>
         <div className="container footer-bottom">
@@ -187,8 +211,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {[
           [Home, 'Home', '/'],
           [Layers, 'Explore', '/categories'],
-          [BookOpen, 'Learning', '/my-learning'],
-          [Bookmark, 'Saved', '/saved'],
+          [BookOpen, 'Paths', '/paths'],
+          ...(user ? [[Bookmark, 'Saved', '/saved']] : []),
+          [User, 'Profile', user ? '/profile' : '/login'],
         ].map(([Icon, label, to]) => {
           const I = Icon as typeof User;
           return (

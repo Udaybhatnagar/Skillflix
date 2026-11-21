@@ -91,7 +91,7 @@ export function AuthForm({
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(() => params.get('email') || '');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [error, setError] = useState('');
@@ -118,7 +118,7 @@ export function AuthForm({
       <p className="mt-2 text-sm text-muted">
         {mode === 'signup'
           ? 'Save your learning across devices.'
-          : 'Continue your learning journey.'}
+          : 'Sign in to continue your learning.'}
       </p>
       <GoogleButton onSuccess={onSuccess} />
       <form onSubmit={submit} className="mt-5 space-y-4">
@@ -142,6 +142,7 @@ export function AuthForm({
             className="input mt-2"
             type="email"
             autoComplete="email"
+            placeholder="you@example.com"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -153,6 +154,7 @@ export function AuthForm({
             className="input mt-2"
             type="password"
             autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
+            placeholder="Enter password"
             required
             minLength={mode === 'signup' ? 10 : 1}
             value={password}
@@ -178,7 +180,7 @@ export function AuthForm({
           </p>
         )}
         <button className="button-primary w-full" disabled={busy}>
-          {busy ? 'Please wait…' : mode === 'signup' ? t('createAccount') : t('continueEmail')}
+          {busy ? 'Please wait…' : mode === 'signup' ? t('createAccount') : 'Sign in'}
         </button>
       </form>
       <div className="mt-5 flex flex-wrap justify-between gap-3 text-sm">

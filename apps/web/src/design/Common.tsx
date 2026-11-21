@@ -21,9 +21,10 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, type ReactNode, type FormEvent } from 'react';
+import { useState, useEffect, type ReactNode, type FormEvent } from 'react';
 import type { CatalogItem, Resource } from '../types';
 import { useLearning } from '../context/LearningState';
+import { figmaArtwork } from './FigmaAssets';
 export {
   ArrowUpRight,
   ArrowRight,
@@ -57,9 +58,8 @@ export function themeFor(category: string) {
         ? 'pink'
         : 'yellow';
 }
-export function imageFor(category: string) {
-  const c = category.toLowerCase();
-  return `/design/${/tech|develop|program/.test(c) ? 'code' : /design/.test(c) ? 'design' : 'marketing'}.png`;
+export function imageFor(category: string, title = '') {
+  return figmaArtwork(title, category);
 }
 export function Art({
   title,
@@ -80,7 +80,7 @@ export function Art({
             ? src.startsWith('/api/')
               ? `${import.meta.env.VITE_API_URL || ''}${src}`
               : src
-            : imageFor(category)
+            : imageFor(category, title)
         }
         alt={`${title} learning illustration`}
         loading="lazy"
@@ -153,6 +153,7 @@ export function SectionHead({
 }
 export function SearchForm({ initial = '', hero = false }: { initial?: string; hero?: boolean }) {
   const [query, setQuery] = useState(initial);
+  useEffect(() => setQuery(initial), [initial]);
   const navigate = useNavigate();
   function submit(e: FormEvent) {
     e.preventDefault();
@@ -296,16 +297,22 @@ export function PlaylistCard({ resource }: { resource: Resource }) {
 export function EmptyState({
   title = 'Your next step starts here.',
   description = 'Explore a path and save it for your next learning session.',
+  to = '/paths',
+  label = 'Explore learning paths',
 }: {
   title?: string;
   description?: string;
+  to?: string;
+  label?: string;
 }) {
   return (
     <div className="empty-state">
-      <img className="empty-media" src="/design/design.png" alt="Explore a learning direction" />
+      <span className="figma-empty-icon">
+        <Search className="icon" />
+      </span>
       <h2>{title}</h2>
       <p>{description}</p>
-      <Button to="/paths">Explore learning paths</Button>
+      <Button to={to}>{label}</Button>
     </div>
   );
 }

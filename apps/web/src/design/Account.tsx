@@ -1,5 +1,5 @@
 import { useState, type ReactNode, type FormEvent } from 'react';
-import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/Auth';
 import { useLearning } from '../context/LearningState';
 import { useApi } from '../hooks/useApi';
@@ -24,6 +24,7 @@ const loadPaths = async () => {
   return [...a, ...b];
 };
 export function AccountLayout({ children }: { children: ReactNode }) {
+  const { pathname, hash } = useLocation();
   const { user, loading } = useAuth();
   if (loading) return <Loading />;
   if (!user)
@@ -40,7 +41,10 @@ export function AccountLayout({ children }: { children: ReactNode }) {
         </Link>
         {[
           [BookOpen, 'My learning', '/my-learning'],
+          [BookOpen, 'Continue Learning', '/my-learning#continue'],
           [Bookmark, 'Saved resources', '/saved'],
+          [BookOpen, 'Watch History', '/my-learning#history'],
+          [Sparkles, 'My Progress', '/my-learning#progress'],
           [User, 'Profile & preferences', '/profile'],
         ].map(([Icon, label, to]) => {
           const I = Icon as typeof User;
@@ -48,7 +52,19 @@ export function AccountLayout({ children }: { children: ReactNode }) {
             <NavLink
               key={to as string}
               to={to as string}
-              className={({ isActive }) => (isActive ? 'active' : '')}
+              className={() => {
+                const [targetPath, targetHash = ''] = (to as string).split('#');
+                return pathname === targetPath && hash === (targetHash ? `#${targetHash}` : '')
+                  ? 'active'
+                  : '';
+              }}
+              onClick={() => {
+                const target = (to as string).split('#')[1];
+                if (target)
+                  requestAnimationFrame(() =>
+                    document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' }),
+                  );
+              }}
             >
               <I className="icon" />
               {label as string}

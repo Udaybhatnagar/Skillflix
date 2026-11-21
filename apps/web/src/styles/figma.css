@@ -1,0 +1,3369 @@
+/* Skillflix Figma: 1440px desktop / 390px mobile, Inter, four-point spacing. */
+@media (min-width: 761px) {
+  .figma-app .concept-page-banner .page-intro h1 {
+    font-size: 57px;
+  }
+  .figma-app .concept-page-banner .page-intro p {
+    font-size: 19px;
+  }
+  .figma-app .concept-category-grid .concept-category h3 {
+    font-size: 22px;
+  }
+  .figma-app .concept-category-grid .concept-category p {
+    font-size: 16px;
+  }
+  .figma-app .concept-browse .section-head h2,
+  .figma-app .concept-paths .section-head h2 {
+    font-size: 30px;
+  }
+  .figma-app .concept-paths .concept-path-grid .course-copy h3 {
+    font-size: 21px;
+  }
+  .figma-app .concept-paths .concept-path-grid .course-copy p {
+    font-size: 16px;
+  }
+  .figma-app .concept-paths .concept-path-grid .card-meta {
+    font-size: 13px;
+  }
+  .figma-app .concept-all-paths h3 {
+    font-size: 20px;
+  }
+  .figma-app .concept-all-paths p {
+    font-size: 16px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .course-copy h3 {
+    font-size: 23px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .course-copy p {
+    font-size: 16px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .card-meta {
+    font-size: 14px;
+  }
+}
+@media (min-width: 761px) and (max-width: 1350px) {
+  .figma-app .concept-page-banner .page-intro h1 {
+    font-size: 48px;
+  }
+  .figma-app .concept-page-banner .page-intro p {
+    font-size: 16px;
+  }
+  .figma-app .concept-category-grid .concept-category h3 {
+    font-size: 18px;
+  }
+  .figma-app .concept-category-grid .concept-category p {
+    font-size: 14px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .course-copy h3 {
+    font-size: 19px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .course-copy p {
+    font-size: 13px;
+  }
+  .figma-app .concept-playlist-list .playlist-card .card-meta {
+    font-size: 11px;
+  }
+}
+.figma-app .section-head {
+  flex-direction: row;
+  text-align: left;
+  justify-content: space-between;
+}
+.figma-app .figma-detail-page .path-detail-hero {
+  border: 0;
+  border-radius: 20px;
+  background: linear-gradient(110deg, #f0e8ff, #fff0f4);
+  padding: 30px;
+  min-height: 285px;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  margin: 20px 0 36px;
+}
+.figma-app .figma-detail-page .path-detail-hero h1 {
+  font-size: 42px;
+  margin: 16px 0 12px;
+}
+.figma-app .figma-detail-page .path-detail-hero p {
+  font-size: 14px;
+}
+.figma-app .figma-detail-page .path-facts {
+  margin: 16px 0 22px;
+  font-size: 12px;
+}
+.figma-app .figma-detail-page .path-art .course-art,
+.figma-app .figma-playlist-detail .path-detail-hero > .course-art {
+  height: 245px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+.figma-app .figma-detail-page .pill-row {
+  font-size: 10px;
+  gap: 10px;
+  color: var(--primary);
+}
+.figma-app .figma-detail-page .pill {
+  background: transparent;
+  padding: 0;
+  color: var(--primary);
+  font-size: 10px;
+  border: 0;
+}
+.figma-app .figma-detail-page .section-subtitle {
+  display: none;
+}
+.figma-app .figma-detail-page .module-list summary {
+  padding: 8px;
+  min-height: 72px;
+  gap: 16px;
+}
+.figma-module-thumbnail {
+  width: 74px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.figma-app .figma-detail-page .module-list summary h3 {
+  font-size: 15px;
+}
+.figma-app .figma-detail-page .module-list summary small {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.figma-app .figma-detail-page .module-list summary > .icon {
+  display: none;
+}
+.figma-open-module {
+  border: 1px solid var(--line);
+  color: var(--primary);
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 11px;
+  white-space: nowrap;
+  margin-left: auto;
+  display: inline-flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.figma-app .figma-detail-page .section {
+  padding: 10px 0 24px;
+}
+.figma-app .figma-detail-page .lesson-row {
+  padding: 8px;
+  font-size: 14px;
+  gap: 16px;
+}
+.figma-app .figma-detail-page .sample-note {
+  font-size: 12px;
+}
+.figma-roadmap-progress {
+  padding: 20px;
+  background: #f2edff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 30px 0;
+}
+.figma-roadmap-progress > div {
+  flex: 1;
+}
+.figma-roadmap-progress h3 {
+  font-size: 15px;
+}
+.figma-roadmap-progress p {
+  font-size: 12px;
+  margin: 8px 0 12px;
+}
+.figma-roadmap-progress .progressbar {
+  height: 5px;
+  max-width: 650px;
+}
+.figma-roadmap-progress .text-link {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.figma-roadmap-progress .icon {
+  width: 14px;
+  height: 14px;
+}
+@media (max-width: 760px) {
+  .figma-app .figma-detail-page .path-detail-hero {
+    padding: 22px;
+    display: flex;
+    gap: 24px;
+    margin: 20px 0 28px;
+  }
+  .figma-app .figma-detail-page .path-detail-hero h1 {
+    font-size: 27px;
+  }
+  .figma-app .figma-detail-page .path-detail-hero p {
+    font-size: 12px;
+  }
+  .figma-app .figma-detail-page .path-facts {
+    font-size: 10px;
+    gap: 10px;
+  }
+  .figma-app .figma-detail-page .path-art .course-art,
+  .figma-app .figma-playlist-detail .path-detail-hero > .course-art {
+    height: 170px;
+    width: 100%;
+  }
+  .figma-app .figma-detail-page .module-list summary {
+    gap: 10px;
+    padding: 10px;
+  }
+  .figma-module-thumbnail {
+    width: 52px;
+    height: 44px;
+  }
+  .figma-app .figma-detail-page .module-list summary h3 {
+    font-size: 12px;
+  }
+  .figma-app .figma-detail-page .module-list summary small {
+    font-size: 8px;
+  }
+  .figma-open-module {
+    font-size: 9px;
+    padding: 8px;
+    white-space: normal;
+    text-align: center;
+    max-width: 75px;
+  }
+  .figma-roadmap-progress {
+    display: block;
+    padding: 18px;
+  }
+  .figma-roadmap-progress .text-link {
+    margin-top: 18px;
+  }
+  .figma-app .concept-video-actions > button:nth-child(2),
+  .figma-app .concept-video-actions > button:nth-child(3) {
+    display: none;
+  }
+  .figma-app .concept-video-actions > button:first-child,
+  .figma-app .concept-video-actions > button:last-child {
+    flex: 1;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 11px;
+  }
+}
+.figma-app {
+  --primary: #6135ef;
+  --text: #10152d;
+  --muted: #535c79;
+  --surface: #f8f8fd;
+  --line: #e6e6f3;
+  color: var(--text);
+  background: var(--surface);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+.figma-app h1,
+.figma-app h2,
+.figma-app h3,
+.figma-app h4 {
+  color: var(--text);
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+.figma-app p {
+  color: var(--muted);
+}
+.figma-app .container {
+  max-width: 1320px;
+  width: calc(100% - 128px);
+}
+.figma-app .header {
+  height: 70px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  box-shadow: none;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+.figma-app .nav-wrap {
+  width: calc(100% - 56px);
+  max-width: 1600px;
+  height: 70px;
+  gap: 34px;
+  margin: auto;
+}
+.figma-app .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 21px;
+  letter-spacing: -0.6px;
+  font-weight: 750;
+  flex-shrink: 0;
+  color: var(--text);
+}
+.figma-wordmark-accent {
+  color: #ec2771;
+}
+.figma-logo-mark {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+.figma-logo-mark > img {
+  display: block;
+}
+.figma-logo-mark > span {
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 22px;
+}
+.figma-app .desktop-nav {
+  margin-left: 16px;
+  gap: 19px;
+  flex: 1;
+  justify-content: flex-start;
+}
+.figma-app .desktop-nav a {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 8px 9px;
+}
+.figma-app .desktop-nav a.active {
+  color: var(--primary);
+  background: #f2edff;
+  border-radius: 5px;
+  font-weight: 600;
+  padding: 8px 9px;
+}
+.figma-app .nav-actions {
+  gap: 24px;
+  margin-left: auto;
+}
+.figma-app .concept-nav-search {
+  width: 354px;
+  max-width: 26vw;
+  height: 38px;
+  background: #f6f4ff;
+  border: 1px solid #efebfc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-right: 56px;
+}
+.figma-app .concept-nav-search input {
+  font-size: 12px;
+  color: var(--muted);
+}
+.figma-app .concept-nav-search kbd {
+  display: none;
+}
+.figma-app .auth-login-link,
+.figma-my-learning {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.figma-app .avatar {
+  width: 36px;
+  height: 36px;
+  background: #f2edff;
+  color: var(--primary);
+  font-size: 13px;
+}
+.figma-app .save-nav {
+  display: none;
+}
+.figma-app .btn,
+.figma-app .button-primary {
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  color: #fff;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 11px 20px;
+  line-height: 20px;
+  gap: 8px;
+}
+.figma-app .btn:hover,
+.figma-app .button-primary:hover {
+  background: #5124dc;
+  transform: none;
+  box-shadow: 0 3px 12px #6135ef15;
+}
+.figma-app .btn.secondary,
+.figma-app .button-outline {
+  color: var(--primary);
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.figma-app .btn.small {
+  font-size: 12px;
+  min-height: 37px;
+  padding: 8px 24px;
+}
+.figma-app .btn .icon {
+  width: 15px;
+  height: 15px;
+}
+.figma-app .text-link {
+  color: var(--primary);
+  font-size: 12px;
+}
+.figma-app a:focus-visible,
+.figma-app button:focus-visible,
+.figma-app summary:focus-visible {
+  outline: 2px solid #a98cf9;
+  outline-offset: 3px;
+}
+.figma-app .footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  margin-top: 64px;
+  padding: 32px 0 0;
+}
+.figma-app .footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(5, 1fr);
+  gap: 30px;
+  padding: 0 0 28px;
+}
+.figma-app .footer-top b {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 0;
+}
+.figma-app .footer-top a:not(.logo),
+.figma-app .footer-top p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.figma-app .footer-top p {
+  margin-top: 16px;
+}
+.figma-app .footer-bottom {
+  border-top: 1px solid var(--line);
+  font-size: 10px;
+  padding: 15px 0;
+  color: var(--muted);
+}
+.figma-inner-shell .footer-top {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  padding-bottom: 0;
+}
+.figma-inner-shell .footer-top > div:first-child p,
+.figma-inner-shell .footer-top > div:nth-child(n + 3),
+.figma-inner-shell .footer-bottom {
+  display: none;
+}
+.figma-inner-shell .footer-top > div:nth-child(2) {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-direction: row;
+}
+.figma-inner-shell .footer-top > div:nth-child(2) > b {
+  display: none;
+}
+.figma-inner-shell .footer {
+  padding: 22px 0;
+  margin-top: 72px;
+}
+.figma-app .bottom-nav {
+  display: none;
+}
+.figma-home-shell {
+  background: #fdfcfe;
+}
+.figma-hero-band {
+  background:
+    radial-gradient(ellipse at 72% 85%, #efe8ff 0, transparent 48%),
+    linear-gradient(115deg, #fdfbff, #fbf8ff 68%, #f6fbff);
+}
+.figma-app .figma-hero {
+  min-height: 624px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+.figma-kicker {
+  display: inline-block;
+  background: #f5eafa;
+  color: #75388c;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 99px;
+  padding: 8px 16px;
+}
+.figma-hero h1 {
+  font-size: 49px;
+  line-height: 1.16;
+  margin: 28px 0 20px;
+  font-weight: 750;
+  letter-spacing: -1.7px;
+}
+.figma-hero h1 > span,
+.figma-hero h1 > strong {
+  display: block;
+}
+.figma-hero h1 strong {
+  color: var(--primary);
+  font-size: inherit;
+  margin-top: 6px;
+}
+.figma-hero-copy > p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.figma-app .mobile-headline {
+  display: none;
+}
+.figma-hero .concept-benefits {
+  gap: 27px;
+  margin: 42px 0 30px;
+}
+.figma-hero .concept-benefits > span {
+  gap: 10px;
+}
+.figma-hero .concept-benefits .icon {
+  background: #f0ebff;
+  color: #7546ff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+.figma-hero .concept-benefits > span:last-child .icon {
+  color: #f34363;
+  background: #fff0f3;
+  fill: #f34363;
+}
+.figma-hero .concept-benefits b {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.figma-hero .button-row {
+  gap: 18px;
+}
+.figma-hero .button-row .btn {
+  font-size: 12px;
+  min-width: 180px;
+  height: 50px;
+}
+.figma-hero .button-row .secondary .icon {
+  display: none;
+}
+.figma-hero-copy > .figma-hero-caption {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 35px;
+}
+.figma-avatar-stack {
+  display: flex;
+  padding-left: 6px;
+}
+.figma-avatar-stack i {
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  margin-left: -6px;
+  color: #fff;
+  background: #b6a0d7;
+  font-size: 9px;
+}
+.figma-avatar-stack i:nth-child(2) {
+  background: #9fa9cb;
+}
+.figma-avatar-stack i:nth-child(3) {
+  background: #d0a487;
+}
+.figma-avatar-stack i:nth-child(4) {
+  background: #ffbe6a;
+}
+.figma-course-preview {
+  position: relative;
+  background: #fff;
+  border: 1px solid #f0ecfb;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 35px #6233ae08;
+  isolation: isolate;
+  min-width: 0;
+}
+.figma-course-preview:before {
+  content: '';
+  position: absolute;
+  inset: 85px -20px 15px -28px;
+  background: #eae0ff;
+  z-index: -2;
+  border-radius: 45% 20% 40% 30%;
+  transform: rotate(15deg);
+}
+.figma-course-preview:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: white;
+  z-index: -1;
+  border-radius: 20px;
+}
+.figma-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.figma-preview-header > div {
+  flex: 1;
+  min-width: 0;
+}
+.figma-preview-header b {
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.figma-preview-header small {
+  font-size: 10px;
+  display: block;
+  color: var(--muted);
+  margin-top: 5px;
+}
+.figma-avatar {
+  border-radius: 50%;
+  background: #eadfff;
+  color: #8754ff;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.figma-preview-header .btn.small {
+  padding: 8px 12px;
+  font-size: 10px;
+  min-height: 38px;
+}
+.figma-preview-content {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 14px;
+}
+.figma-preview-content ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.figma-preview-content li {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 15px 9px;
+  border-left: 2px solid transparent;
+}
+.figma-preview-content li.active {
+  background: #f5f0ff;
+  color: var(--primary);
+  border-left-color: #a586ff;
+  font-weight: 600;
+}
+.figma-preview-image {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #031029;
+  aspect-ratio: 1.62;
+}
+.figma-preview-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.figma-preview-image > strong {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  color: #fff;
+  font-size: 31px;
+  line-height: 1.2;
+  text-shadow: 0 2px 10px #0006;
+}
+.figma-preview-image > strong small {
+  display: block;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.figma-video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #050912d9;
+  border-top: 3px solid #e94969;
+  padding: 6px 9px;
+  color: #fff;
+  font-size: 8px;
+}
+.figma-video-controls .icon {
+  width: 11px;
+  height: 11px;
+}
+.figma-video-controls > span {
+  margin-left: auto;
+}
+.figma-preview-progress {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fcfbff;
+  margin-top: 16px;
+  padding: 15px;
+}
+.figma-preview-progress b {
+  font-size: 11px;
+}
+.figma-preview-progress p {
+  font-size: 10px;
+  margin-top: 8px;
+}
+.figma-preview-progress > a {
+  font-size: 10px;
+  color: var(--primary);
+  font-weight: 600;
+  display: block;
+  margin-top: 10px;
+}
+.figma-preview-sticker,
+.figma-preview-bottom {
+  position: absolute;
+  padding: 15px 22px;
+  font-size: 10px;
+  border-radius: 40px;
+  line-height: 1.8;
+  color: #147b5c;
+  background: #e6f9ee;
+  right: -12px;
+  top: -60px;
+  text-align: center;
+  font-weight: 600;
+}
+.figma-preview-sticker .icon {
+  width: 12px;
+  height: 12px;
+  display: inline;
+  margin-right: 4px;
+}
+.figma-preview-bottom {
+  top: auto;
+  bottom: -34px;
+  right: -40px;
+  background: #fff0d5;
+  color: #835425;
+}
+.figma-section {
+  margin: 28px 0 48px;
+}
+.figma-app .section-head {
+  margin-bottom: 20px;
+  align-items: center;
+}
+.figma-app .section-head h2 {
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+}
+.figma-app .section-head .eyebrow:empty {
+  display: none;
+}
+.figma-app .section-head .text-link {
+  font-size: 11px;
+}
+.figma-app .section-head .text-link .icon {
+  display: none;
+}
+.figma-app .concept-category-strip {
+  gap: 12px;
+}
+.figma-app .concept-category {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 19px 16px;
+  gap: 12px;
+  box-shadow: 0 2px 3px #27214d03;
+  min-width: 0;
+}
+.figma-app .concept-category .category-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+.figma-app .concept-category h3 {
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+.figma-app .concept-category p {
+  font-size: 10px;
+  margin-top: 7px;
+}
+.figma-app .course-card {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 2px #1d124806;
+}
+.figma-app .course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 20px #4c2b8510;
+}
+.figma-app .art-link {
+  margin: 0;
+  display: block;
+}
+.figma-app .course-art {
+  height: 170px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #080b27;
+  padding: 0;
+}
+.figma-app .course-art img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+.figma-app .media-caption,
+.figma-app .media-badge {
+  display: none;
+}
+.figma-app .course-copy {
+  padding: 16px;
+}
+.figma-app .course-copy h3 {
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin: 0 0 9px;
+}
+.figma-app .course-copy p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.figma-app .course-copy > .eyebrow {
+  display: none;
+}
+.figma-app .card-meta {
+  font-size: 11px;
+  gap: 12px;
+  margin-top: 15px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  border: 0;
+  line-height: 1.6;
+}
+.figma-app .card-meta .icon {
+  width: 12px;
+  height: 12px;
+}
+.figma-app .card-bottom {
+  border-top: 1px solid #f3f0fa;
+  padding-top: 10px;
+  margin-top: 14px;
+  min-height: 32px;
+}
+.figma-app .card-bottom > a {
+  font-size: 11px;
+  color: var(--primary);
+}
+.figma-app .save-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+}
+.figma-app .save-btn > .icon {
+  width: 14px;
+  height: 14px;
+}
+.figma-home .concept-path-grid {
+  gap: 26px;
+}
+.figma-home .course-card > .art-link {
+  margin: 0;
+}
+.figma-home .course-art {
+  height: 132px;
+}
+.figma-home .course-copy h3 {
+  font-size: 13px;
+}
+.figma-home .course-copy {
+  padding: 14px;
+}
+.figma-home .card-meta {
+  font-size: 10px;
+  gap: 5px;
+}
+.figma-home .card-meta .icon {
+  display: none;
+}
+.figma-resume-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 24px;
+  border-radius: 10px;
+  background: #f2edff;
+  min-height: 120px;
+}
+.figma-resume-banner h2 {
+  font-size: 21px;
+}
+.figma-resume-banner p {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.figma-app .concept-reasons {
+  gap: 20px;
+}
+.figma-app .concept-reasons > div {
+  border: 1px solid var(--line);
+  padding: 22px 14px;
+  gap: 12px;
+  background: #fff;
+}
+.figma-app .concept-reasons h3 {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.figma-app .concept-reasons p {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+.figma-app .concept-reasons .icon {
+  width: 37px;
+  height: 37px;
+  padding: 9px;
+}
+.figma-goals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+.figma-goals > a {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  background: white;
+  box-shadow: 0 3px 2px #1d124806;
+}
+.figma-goals h3 {
+  font-size: 15px;
+  letter-spacing: 0;
+}
+.figma-goals p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.figma-goals span {
+  color: var(--primary);
+  display: block;
+  font-size: 11px;
+  margin-top: 24px;
+  font-weight: 600;
+}
+.figma-app .concept-cta {
+  background: linear-gradient(100deg, #6135ef, #9650cf 55%, #ff9b99);
+  border-radius: 10px;
+  padding: 24px 64px;
+  gap: 30px;
+  min-height: 94px;
+  margin: 28px 0 0;
+}
+.figma-app .concept-cta h2 {
+  color: #fff;
+  font-size: 22px;
+}
+.figma-app .concept-cta p {
+  color: #fff;
+  font-size: 13px;
+  margin-top: 9px;
+}
+.figma-app .concept-cta .btn {
+  background: #fff;
+  border-color: #fff;
+  color: var(--primary);
+  white-space: nowrap;
+}
+.figma-app .concept-cta form {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  max-width: 500px;
+  min-width: 300px;
+}
+.figma-app .concept-cta input {
+  border: 0;
+  border-radius: 6px 0 0 6px;
+  padding: 14px 18px;
+  font-size: 12px;
+  min-width: 0;
+  width: 100%;
+  background: #fff;
+}
+.figma-app .concept-cta form .btn {
+  background: #10152d;
+  border-color: #10152d;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  font-size: 12px;
+  padding: 12px 20px;
+}
+.figma-home-shell .footer {
+  border: 0;
+  background: transparent;
+  margin: 0 auto;
+}
+.figma-home-shell .footer-top {
+  background: #faf9fd;
+  padding: 36px;
+  max-width: 1320px;
+}
+.figma-app .concept-page-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #faf9ff;
+  border-bottom: 0;
+  padding: 0 0 24px;
+  min-height: 280px;
+  position: relative;
+  margin-bottom: 32px;
+}
+.figma-app .concept-page-banner .page-intro {
+  padding: 40px 0;
+  max-width: 65%;
+}
+.figma-app .concept-page-banner h1 {
+  font-size: 42px;
+  color: var(--text);
+  line-height: 1.3;
+  margin: 12px 0 18px;
+}
+.figma-app .concept-page-banner .eyebrow {
+  font-size: 10px;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.figma-app .concept-page-banner p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+.figma-app .figma-banner-image {
+  display: block;
+  width: 28%;
+  max-width: 350px;
+  height: 230px;
+  object-fit: contain;
+  margin-right: 30px;
+}
+.figma-app .concept-browse,
+.figma-app .concept-paths {
+  padding-top: 28px;
+  min-height: 70vh;
+}
+.figma-app .concept-category-grid {
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.figma-app .concept-category-grid > .concept-category {
+  min-height: 150px;
+  padding: 28px;
+}
+.figma-app .concept-category-grid .category-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 12px;
+}
+.figma-app .concept-category-grid .category-icon .icon {
+  width: 28px;
+  height: 28px;
+}
+.figma-app .concept-category-grid h3 {
+  font-size: 17px;
+}
+.figma-app .concept-category-grid p {
+  font-size: 13px;
+  margin-top: 14px;
+}
+.figma-app .concept-help-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(110deg, #f0e9ff, #f8ebf2);
+  padding: 36px 42px;
+  border: 0;
+  border-radius: 12px;
+  margin: 48px 0;
+  min-height: 220px;
+  overflow: hidden;
+}
+.figma-app .concept-help-banner h2 {
+  font-size: 27px;
+  color: var(--primary);
+}
+.figma-app .concept-help-banner p {
+  font-size: 14px;
+  margin: 15px 0 20px;
+}
+.figma-app .figma-guidance-image {
+  width: 30%;
+  max-width: 330px;
+  height: 220px;
+  object-fit: contain;
+  flex-shrink: 0;
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+}
+.figma-app .concept-help-banner > div {
+  max-width: 65%;
+  position: relative;
+  z-index: 1;
+}
+.figma-app .concept-help-banner .btn {
+  font-size: 12px;
+}
+.figma-app .concept-resource-grid {
+  gap: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.figma-app .resource-thumbnail {
+  border-radius: 8px;
+  aspect-ratio: 1.65;
+  overflow: hidden;
+}
+.figma-app .resource-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.figma-app .resource-thumbnail > span {
+  display: none;
+}
+.figma-category-benefits {
+  background: #f5f1fc;
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin: 48px 0;
+}
+.figma-category-benefits h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+.figma-category-benefits > div {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.figma-category-benefits > div > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.figma-category-benefits .icon {
+  width: 26px;
+  height: 26px;
+  color: var(--primary);
+}
+.figma-category-benefits b,
+.figma-category-benefits small {
+  display: block;
+  font-size: 12px;
+}
+.figma-category-benefits small {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 8px;
+}
+.figma-app .concept-paths .mini-feature {
+  display: none;
+}
+.figma-app .concept-paths .filter-bar {
+  border: 0;
+  padding: 0;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 56px;
+}
+.figma-level-tabs {
+  display: flex;
+  gap: 10px;
+  margin-right: auto;
+}
+.figma-level-tabs button {
+  border: 1px solid var(--line);
+  color: var(--primary);
+  background: #fff;
+  font-size: 12px;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+.figma-level-tabs button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.figma-app .concept-paths .filter-label,
+.figma-app .concept-paths .filter-bar > label:nth-of-type(2),
+.figma-app .concept-paths .result-count,
+.figma-app .concept-paths .clear-btn {
+  display: none;
+}
+.figma-app .concept-paths .filter-bar select {
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+}
+.figma-app .concept-paths .concept-path-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.figma-app .concept-paths .concept-path-grid .course-copy p {
+  display: block;
+}
+.figma-app .concept-paths .course-art {
+  height: 190px;
+}
+.figma-app .concept-all-paths {
+  gap: 14px;
+}
+.figma-app .concept-all-paths > a {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  gap: 20px;
+}
+.figma-app .concept-all-paths h3 {
+  font-size: 16px;
+}
+.figma-app .concept-all-paths p {
+  font-size: 13px;
+}
+.figma-app .concept-all-paths > a > span:not(.category-icon) {
+  font-size: 11px;
+}
+.figma-app .concept-all-paths b {
+  padding: 10px 22px;
+  font-size: 12px;
+}
+.figma-app .concept-all-paths .category-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+}
+.figma-app .concept-list-toolbar {
+  display: flex;
+  gap: 16px;
+  margin: 32px 0 20px;
+}
+.figma-app .concept-list-toolbar input {
+  max-width: 600px;
+  height: 50px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+  background: #fff;
+  border-radius: 8px;
+  flex: 1;
+}
+.figma-app .concept-list-toolbar select {
+  margin-left: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--primary);
+  font-size: 12px;
+  padding: 10px 20px;
+}
+.figma-app .concept-filter-chips {
+  gap: 12px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.figma-app .concept-filter-chips button {
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 99px;
+  padding: 8px 16px;
+  color: var(--muted);
+}
+.figma-app .concept-filter-chips button.active {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.figma-app .concept-results-layout {
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 24px;
+}
+.figma-app .concept-filters {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8f7fd;
+  padding: 26px;
+  position: static;
+}
+.figma-app .concept-filters h3 {
+  font-size: 16px;
+}
+.figma-app .concept-filters fieldset {
+  margin: 28px 0;
+}
+.figma-app .concept-filters legend {
+  font-size: 13px;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.figma-app .concept-filters label {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.figma-app .concept-filters input {
+  accent-color: var(--primary);
+}
+.figma-app .filter-select {
+  margin: 28px 0;
+  font-size: 13px !important;
+  color: var(--text) !important;
+  font-weight: 600;
+}
+.figma-app .filter-select select {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-top: 16px;
+  padding: 10px;
+  color: var(--primary);
+}
+.figma-app .concept-filters .btn {
+  font-size: 11px;
+  padding: 7px 12px;
+  min-height: 38px;
+  font-weight: 400;
+}
+.figma-app .concept-playlist-list {
+  gap: 14px;
+}
+.figma-app .concept-playlist-list .playlist-card {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 22px;
+  padding: 18px;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: none;
+}
+.figma-app .concept-playlist-list .resource-thumbnail {
+  height: 166px;
+  width: 100%;
+  aspect-ratio: auto;
+}
+.figma-app .concept-playlist-list .art-link {
+  margin: 0;
+}
+.figma-app .concept-playlist-list .course-copy {
+  padding: 4px 40px 0 0;
+  min-width: 0;
+}
+.figma-app .concept-playlist-list .course-copy h3 {
+  font-size: 17px;
+}
+.figma-app .concept-playlist-list .course-copy p {
+  font-size: 13px;
+}
+.figma-app .concept-playlist-list .card-meta {
+  display: flex;
+  margin-top: 18px;
+  font-size: 12px;
+}
+.figma-app .concept-playlist-list .card-bottom {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.figma-app .concept-playlist-list .card-bottom > a {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-size: 12px;
+}
+.figma-app .concept-playlist-list .save-btn {
+  position: absolute;
+  right: 22px;
+  top: 20px;
+}
+.figma-app .concept-result-count {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+.figma-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 36px 0;
+}
+.figma-pagination button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--primary);
+  background: #fff;
+  padding: 9px 14px;
+  font-size: 12px;
+}
+.figma-pagination [aria-current='page'] {
+  background: var(--primary);
+  color: white;
+}
+.figma-app .auth-layout {
+  max-width: 1344px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 84px;
+  background: none;
+  min-height: 690px;
+  margin: 44px auto 0;
+  width: calc(100% - 96px);
+  padding: 0;
+  align-items: start;
+}
+.figma-app .auth-story {
+  background: linear-gradient(115deg, #eee7ff, #fff0f1);
+  border: 0;
+  border-radius: 20px;
+  padding: 48px 42px;
+  min-height: 640px;
+}
+.figma-app .auth-story h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+.figma-app .auth-story h1 span {
+  color: var(--primary);
+}
+.figma-app .auth-story p {
+  font-size: 16px;
+  margin: 26px 0 32px;
+}
+.figma-app .auth-art {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  transform: none;
+  inset: auto;
+}
+.figma-app .auth-art > img {
+  width: 100%;
+  aspect-ratio: 1.75;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+.figma-app .auth-art > strong {
+  color: white;
+  position: absolute;
+  left: 36px;
+  top: 36%;
+  font-size: 34px;
+}
+.figma-app .auth-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 30px 24px;
+  margin: 44px 0;
+  max-width: 445px;
+  width: 100%;
+  box-shadow: none;
+}
+.figma-app .auth-form h2 {
+  font-size: 36px;
+}
+.figma-app .auth-form p {
+  font-size: 14px;
+}
+.figma-app .auth-form .input {
+  background: #f8f8fd;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 13px;
+  padding: 12px;
+  min-height: 44px;
+}
+.figma-app .auth-form label {
+  font-size: 12px;
+}
+.figma-app .auth-form .button-primary {
+  font-size: 13px;
+  width: 100%;
+  padding: 8px 14px;
+}
+.figma-app .auth-form form + div {
+  font-size: 12px;
+}
+.figma-auth-shell .desktop-nav a:nth-child(n + 5) {
+  display: none;
+}
+.figma-auth-shell .nav-actions > .btn,
+.figma-auth-shell .auth-login-link {
+  display: none;
+}
+.figma-auth-shell .concept-nav-search {
+  margin-right: 0;
+}
+.figma-app .path-detail-hero {
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 50px;
+  padding: 20px 0 40px;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+.figma-app .path-detail-hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  margin: 15px 0 20px;
+}
+.figma-app .path-detail-hero p {
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 650px;
+}
+.figma-app .path-facts {
+  font-size: 12px;
+  margin: 22px 0;
+  gap: 20px;
+}
+.figma-app .path-facts .icon {
+  width: 15px;
+  height: 15px;
+}
+.figma-app .path-art {
+  background: none;
+  padding: 0;
+}
+.figma-app .path-art .course-art {
+  height: 240px;
+}
+.figma-app .art-caption {
+  display: none;
+}
+.figma-app .detail-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 30px;
+}
+.figma-app .detail-layout .sticky-aside {
+  display: none;
+}
+.figma-app .detail-layout .module-list {
+  max-width: 100%;
+}
+.figma-app .section-head.compact h2 {
+  font-size: 24px;
+}
+.figma-app .module-list > details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.figma-app .module-list summary {
+  padding: 22px;
+  gap: 20px;
+}
+.figma-app .module-list summary h3 {
+  font-size: 17px;
+  letter-spacing: 0;
+}
+.figma-app .module-list .module-number {
+  background: #f1edff;
+  color: var(--primary);
+  width: 48px;
+  height: 48px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+.figma-app .module-list .module-body {
+  padding: 0 22px 22px;
+}
+.figma-app .lesson-row {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 16px;
+  font-size: 14px;
+}
+.figma-app .section-subtitle {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+.figma-app .breadcrumb {
+  font-size: 12px;
+  padding: 28px 0;
+}
+.figma-app .lesson-container {
+  max-width: 1440px;
+  width: calc(100% - 96px);
+  padding-top: 22px;
+  min-height: calc(100vh - 205px);
+}
+.figma-app .concept-lesson-layout {
+  grid-template-columns: 260px minmax(0, 1fr) 310px;
+  gap: 24px;
+  margin-top: 22px;
+}
+.figma-app .concept-course-sidebar {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  position: static;
+}
+.figma-app .concept-course-heading {
+  background: #fff;
+  color: var(--text);
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px 12px 0 0;
+}
+.figma-app .concept-course-heading > .icon {
+  display: none;
+}
+.figma-app .concept-course-heading h3 {
+  font-size: 17px;
+  color: var(--text);
+}
+.figma-app .concept-course-heading p {
+  font-size: 11px;
+  color: var(--muted);
+}
+.figma-app .concept-course-progress {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 0;
+  padding: 0 18px 18px;
+  border-radius: 0 0 12px 12px;
+}
+.figma-app .concept-course-progress strong {
+  display: none;
+}
+.figma-app .concept-course-sidebar details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-top: 14px;
+  padding: 8px;
+}
+.figma-app .concept-course-sidebar details > summary {
+  font-size: 13px;
+  padding: 10px;
+}
+.figma-app .concept-course-sidebar li button {
+  font-size: 12px;
+  padding: 12px 6px;
+  border: 0;
+  border-radius: 6px;
+  gap: 4px;
+  line-height: 1.6;
+}
+.figma-app .concept-course-sidebar li button.current {
+  background: #f2edff;
+  color: var(--primary);
+}
+.figma-app .concept-course-tip {
+  display: none;
+}
+.figma-app .lesson-title-row {
+  margin: 0 0 12px;
+  min-height: 0;
+  padding: 0;
+  align-items: start;
+}
+.figma-app .lesson-title-row h2 {
+  font-size: 29px;
+  margin: 0;
+  line-height: 1.3;
+}
+.figma-app .lesson-title-row .eyebrow {
+  display: none;
+}
+.figma-app .lesson-title-row p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+.figma-app .lesson-title-row > .btn {
+  font-size: 11px;
+  min-height: 34px;
+  padding: 6px 10px;
+}
+.figma-app .concept-lesson-right {
+  margin-top: 70px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  position: static;
+}
+.figma-app .lesson-sidebar .sidebar-heading {
+  padding: 18px;
+  background: #f3efff;
+  margin: 12px;
+  border: 0;
+  border-radius: 10px;
+}
+.figma-app .lesson-sidebar h3 {
+  font-size: 15px;
+}
+.figma-app .lesson-sidebar .sidebar-heading .eyebrow {
+  font-size: 9px;
+}
+.figma-app .sidebar-lessons {
+  padding: 0 12px;
+}
+.figma-app .sidebar-lessons button {
+  padding: 12px;
+  font-size: 12px;
+}
+.figma-app .concept-lesson-toolbox {
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+.figma-app .concept-lesson-toolbox h3 {
+  font-size: 14px;
+}
+.figma-app .concept-lesson-toolbox p {
+  font-size: 12px;
+}
+.figma-app .concept-lesson-toolbox .btn {
+  font-size: 11px;
+  min-height: 35px;
+  padding: 7px 10px;
+}
+.figma-app .lesson-main .tabs {
+  border: 0;
+  margin: 22px 0 15px;
+  gap: 8px;
+  overflow-x: auto;
+}
+.figma-app .lesson-main .tabs button {
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 7px 14px;
+  font-size: 12px;
+  background: #fff;
+  color: var(--muted);
+}
+.figma-app .lesson-main .tabs button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.figma-app .lesson-panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 20px;
+  min-height: 190px;
+}
+.figma-app .lesson-panel h3 {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+.figma-app .lesson-panel p {
+  font-size: 13px;
+}
+.figma-app .video-frame {
+  border-radius: 0;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  width: 100%;
+}
+.figma-app .video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.figma-app .concept-video-actions {
+  margin: 16px 0;
+}
+.figma-app .concept-video-actions .btn {
+  font-size: 11px;
+  padding: 7px 12px;
+  min-height: 35px;
+}
+.figma-app .concept-search-page {
+  width: calc(100% - 64px);
+  max-width: 1500px;
+  grid-template-columns: 224px minmax(0, 1fr);
+  gap: 32px;
+  margin: 28px auto;
+}
+.figma-app .concept-search-main > h1 {
+  font-size: 28px;
+}
+.figma-app .concept-search-paths .course-art {
+  height: 150px;
+}
+.figma-app .concept-search-toolbar .tabs button {
+  font-size: 12px;
+}
+.figma-app .concept-search-paths .course-copy h3 {
+  font-size: 14px;
+}
+.figma-app .concept-search-split {
+  grid-template-columns: minmax(0, 1fr) 280px;
+}
+.figma-app .concept-creators-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.figma-account-shell .desktop-nav {
+  display: none;
+}
+.figma-account-shell .nav-actions {
+  flex: 1;
+  justify-content: flex-end;
+}
+.figma-account-shell .concept-nav-search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 354px;
+  max-width: 35vw;
+  margin: 0;
+}
+.figma-account-shell .figma-my-learning {
+  color: var(--primary);
+}
+.figma-app .account-layout {
+  max-width: 1600px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: 0;
+  margin: 0 auto;
+  padding: 0;
+  align-items: stretch;
+  min-height: calc(100vh - 70px);
+}
+.figma-app .account-sidebar {
+  border-right: 1px solid var(--line);
+  background: #fff;
+  padding: 20px 18px;
+  position: static;
+  border-radius: 0;
+  min-height: 100%;
+  border-top: 0;
+  border-left: 0;
+  border-bottom: 0;
+}
+.figma-app .account-person {
+  display: none;
+}
+.figma-app .account-sidebar > a:not(.account-person) {
+  font-size: 12px;
+  gap: 16px;
+  padding: 14px 16px;
+  color: var(--muted);
+  border-radius: 6px;
+  margin: 0 0 5px;
+  min-height: 44px;
+}
+.figma-app .account-sidebar > a.active {
+  color: var(--primary);
+  background: #f4f0ff;
+  font-weight: 600;
+}
+.figma-app .account-sidebar .icon {
+  width: 17px;
+  height: 17px;
+}
+.figma-app .sidebar-tip {
+  background: #f7f2ff;
+  border: 0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 65px 0 0;
+}
+.figma-app .sidebar-tip h4 {
+  font-size: 14px;
+  margin: 12px 0;
+}
+.figma-app .sidebar-tip p {
+  font-size: 12px;
+}
+.figma-app .sidebar-tip > a {
+  font-size: 12px;
+  color: var(--primary);
+  margin-top: 18px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.figma-app .account-main {
+  padding: 24px 38px;
+  min-width: 0;
+}
+.figma-learning-intro {
+  margin-bottom: 28px;
+}
+.figma-learning-intro h1 {
+  font-size: 25px;
+  letter-spacing: 0;
+}
+.figma-learning-intro p {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.figma-app .figma-dashboard-section {
+  margin-bottom: 30px;
+  scroll-margin-top: 95px;
+}
+.figma-learning .section-head h2 {
+  font-size: 21px;
+  letter-spacing: -0.2px;
+}
+.figma-learning .section-head {
+  margin-bottom: 14px;
+}
+.figma-dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.figma-dashboard-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  min-width: 0;
+}
+.figma-dashboard-card > .course-art,
+.figma-dashboard-card > img {
+  width: 58px !important;
+  height: 58px !important;
+  object-fit: cover;
+  flex: none;
+  border-radius: 8px;
+}
+.figma-dashboard-card > div:not(.figma-dashboard-card-progress):not(.course-art) {
+  flex: 1;
+  min-width: 0;
+}
+.figma-dashboard-card h3 {
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.figma-dashboard-card p {
+  font-size: 10px;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+.figma-dashboard-card-progress {
+  width: 100%;
+}
+.figma-dashboard-card-progress .progressbar {
+  height: 4px;
+  background: #e9e5f4;
+}
+.figma-dashboard-card-progress p {
+  font-size: 10px;
+  margin-top: 8px;
+}
+.figma-dashboard-card-progress span {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+.figma-dashboard-card-progress .icon {
+  width: 12px;
+  height: 12px;
+}
+.figma-saved-table {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.figma-saved-table article {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
+}
+.figma-saved-table article:last-child {
+  border: 0;
+}
+.figma-saved-resource {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+.figma-saved-resource img {
+  width: 70px;
+  height: 46px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.figma-saved-resource h3 {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.figma-saved-resource p {
+  font-size: 10px;
+  margin-top: 4px;
+}
+.figma-saved-table article > span {
+  font-size: 10px;
+  color: var(--muted);
+  min-width: 80px;
+}
+.figma-saved-table .btn {
+  font-size: 10px;
+  min-height: 34px;
+  padding: 6px 16px;
+  flex-shrink: 0;
+}
+.figma-dashboard-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 20px;
+}
+.figma-dashboard-bottom > section {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  scroll-margin-top: 100px;
+}
+.figma-dashboard-bottom .section-head h2 {
+  font-size: 17px;
+}
+.figma-activity-list > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+.figma-activity-list b {
+  font-size: 11px;
+  text-transform: capitalize;
+}
+.figma-activity-list p {
+  font-size: 10px;
+  margin-top: 3px;
+}
+.figma-activity-list small {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 9px;
+  color: var(--muted);
+}
+.figma-activity-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #f0e9ff;
+  color: var(--primary);
+}
+.figma-activity-icon > .icon {
+  width: 15px;
+  height: 15px;
+}
+.figma-learning-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.figma-learning-stats > div {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 12px;
+  background: #fbfaff;
+}
+.figma-learning-stats .icon {
+  width: 23px;
+  height: 23px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.figma-learning-stats b {
+  font-size: 18px;
+  display: block;
+}
+.figma-learning-stats small {
+  font-size: 10px;
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+}
+.figma-learning-encouragement {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #f6f2fc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 16px;
+  font-size: 22px;
+}
+.figma-learning-encouragement b {
+  font-size: 11px;
+  display: block;
+}
+.figma-learning-encouragement p {
+  font-size: 11px;
+  color: var(--primary);
+  margin-top: 6px;
+}
+.figma-app .empty-state {
+  padding: 50px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.figma-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  background: #f0e9ff;
+  color: var(--primary);
+  border-radius: 14px;
+  margin: 0 auto 24px;
+}
+.figma-empty-icon .icon {
+  width: 25px;
+  height: 25px;
+}
+.figma-app .empty-state h2 {
+  font-size: 25px;
+}
+.figma-app .empty-state p {
+  font-size: 14px;
+  margin: 14px auto 25px;
+  max-width: 420px;
+}
+.figma-app .breadcrumbs {
+  font-size: 12px;
+  padding: 28px 0;
+  color: var(--muted);
+}
+@media (max-width: 1100px) {
+  .figma-dashboard-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .figma-app .account-main {
+    padding: 24px;
+  }
+  .figma-saved-table article > span {
+    display: none;
+  }
+  .figma-dashboard-bottom {
+    grid-template-columns: 1fr;
+  }
+  .figma-app .account-layout {
+    grid-template-columns: 205px minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .figma-app .account-layout {
+    display: block;
+  }
+  .figma-app .account-sidebar {
+    display: none;
+  }
+  .figma-app .account-main {
+    padding: 24px 20px;
+  }
+  .figma-learning-intro h1 {
+    font-size: 26px;
+  }
+  .figma-learning-intro p {
+    font-size: 12px;
+  }
+  .figma-learning .section-head h2 {
+    font-size: 18px;
+  }
+  .figma-dashboard-cards {
+    gap: 12px;
+  }
+  .figma-dashboard-card {
+    padding: 12px;
+    gap: 8px;
+  }
+  .figma-dashboard-card > .course-art,
+  .figma-dashboard-card > img {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .figma-dashboard-card h3 {
+    font-size: 11px;
+  }
+  .figma-dashboard-card p {
+    font-size: 9px;
+  }
+  .figma-dashboard-card-progress span {
+    font-size: 9px;
+  }
+  .figma-saved-table article {
+    gap: 8px;
+    padding: 12px;
+  }
+  .figma-saved-resource {
+    gap: 10px;
+  }
+  .figma-saved-resource img {
+    width: 50px;
+    height: 42px;
+  }
+  .figma-saved-resource h3 {
+    font-size: 11px;
+  }
+  .figma-saved-resource p {
+    font-size: 9px;
+  }
+  .figma-saved-table .btn {
+    padding: 6px 9px;
+    font-size: 9px;
+  }
+  .figma-saved-table .btn > .icon {
+    display: none;
+  }
+  .figma-dashboard-bottom > section {
+    padding: 16px;
+  }
+  .figma-learning-stats {
+    gap: 8px;
+  }
+  .figma-learning-stats > div {
+    padding: 14px 9px;
+  }
+  .figma-learning-stats b {
+    font-size: 17px;
+  }
+  .figma-learning-stats small {
+    font-size: 9px;
+  }
+  .figma-app .empty-state {
+    padding: 36px 20px;
+  }
+  .figma-app .empty-state h2 {
+    font-size: 22px;
+  }
+  .figma-app .empty-state p {
+    font-size: 12px;
+  }
+  .figma-app .breadcrumbs {
+    font-size: 10px;
+    padding: 20px 0 0;
+  }
+  .figma-account-shell .concept-nav-search {
+    display: none;
+  }
+}
+@media (min-width: 1600px) {
+  .figma-hero h1 {
+    font-size: 54px;
+  }
+  .figma-app .nav-wrap {
+    gap: 50px;
+  }
+  .figma-app .desktop-nav {
+    gap: 28px;
+  }
+}
+@media (max-width: 1350px) {
+  .figma-app .desktop-nav {
+    gap: 6px;
+    margin-left: 0;
+  }
+  .figma-app .nav-wrap {
+    gap: 20px;
+  }
+  .figma-app .concept-nav-search {
+    margin-right: 10px;
+    width: 300px;
+    max-width: 25vw;
+  }
+  .figma-app .nav-actions {
+    gap: 16px;
+  }
+  .figma-hero h1 {
+    font-size: 42px;
+  }
+  .figma-hero-copy > p {
+    font-size: 14px;
+  }
+  .figma-hero .concept-benefits {
+    gap: 12px;
+  }
+  .figma-hero .concept-benefits b {
+    font-size: 10px;
+  }
+  .figma-preview-content {
+    grid-template-columns: 105px minmax(0, 1fr);
+  }
+  .figma-preview-content li {
+    padding: 14px 5px;
+    font-size: 9px;
+  }
+  .figma-preview-image > strong {
+    font-size: 24px;
+  }
+  .figma-preview-image > strong small {
+    font-size: 17px;
+  }
+  .figma-app .concept-lesson-layout {
+    grid-template-columns: 220px minmax(0, 1fr) 260px;
+    gap: 18px;
+  }
+  .figma-app .concept-cta {
+    padding: 26px 32px;
+  }
+  .figma-app .concept-playlist-list .playlist-card {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+  .figma-app .concept-playlist-list .resource-thumbnail {
+    height: 135px;
+  }
+}
+@media (max-width: 1100px) {
+  .figma-app .desktop-nav {
+    display: none;
+  }
+  .figma-app .nav-wrap {
+    gap: 20px;
+  }
+  .figma-app .concept-nav-search {
+    width: 320px;
+    max-width: 40vw;
+    margin-right: 0;
+  }
+  .figma-app .container {
+    width: calc(100% - 64px);
+  }
+  .figma-app .figma-hero {
+    gap: 20px;
+  }
+  .figma-hero h1 {
+    font-size: 38px;
+  }
+  .figma-course-preview {
+    padding: 16px;
+  }
+  .figma-preview-content {
+    grid-template-columns: 85px minmax(0, 1fr);
+  }
+  .figma-preview-content li {
+    font-size: 8px;
+  }
+  .figma-preview-header b {
+    font-size: 10px;
+  }
+  .figma-preview-header small {
+    font-size: 8px;
+  }
+  .figma-preview-bottom {
+    right: -8px;
+  }
+  .figma-hero .button-row .btn {
+    min-width: 0;
+    font-size: 11px;
+    padding: 10px 15px;
+  }
+  .figma-hero .concept-benefits {
+    gap: 8px;
+  }
+  .figma-hero .concept-benefits .icon {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+  }
+  .figma-hero .concept-benefits b {
+    font-size: 8px;
+  }
+  .figma-app .concept-category-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .figma-home .concept-path-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .figma-app .concept-reasons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .figma-app .concept-lesson-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .figma-app .concept-lesson-right {
+    grid-column: 2;
+    margin-top: 0;
+  }
+  .figma-app .concept-course-sidebar {
+    grid-row: 1/3;
+  }
+  .figma-app .lesson-container {
+    width: calc(100% - 48px);
+  }
+  .figma-app .concept-category-grid > .concept-category {
+    min-height: 120px;
+    padding: 20px;
+  }
+  .figma-app .concept-category-grid .category-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .figma-app .concept-category-grid h3 {
+    font-size: 14px;
+  }
+  .figma-app .concept-category-grid p {
+    font-size: 11px;
+  }
+  .figma-app .concept-paths .concept-path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .figma-app .concept-results-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .figma-app .concept-playlist-list .playlist-card {
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 16px;
+  }
+  .figma-app .concept-playlist-list .resource-thumbnail {
+    height: 110px;
+  }
+  .figma-app .concept-playlist-list .course-copy h3 {
+    font-size: 14px;
+  }
+  .figma-app .concept-playlist-list .card-meta {
+    font-size: 10px;
+  }
+  .figma-app .auth-layout {
+    gap: 40px;
+  }
+  .figma-app .auth-story {
+    padding: 36px 28px;
+    min-height: 560px;
+  }
+  .figma-app .auth-story h1 {
+    font-size: 40px;
+  }
+  .figma-app .auth-form {
+    padding: 25px;
+  }
+  .figma-app .auth-form h2 {
+    font-size: 30px;
+  }
+  .figma-app .auth-art > strong {
+    font-size: 25px;
+    left: 20px;
+  }
+  .figma-app .concept-search-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .figma-app .concept-search-paths {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .figma-app .concept-cta form {
+    min-width: 250px;
+  }
+  .figma-app .concept-cta h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .figma-app .nav-wrap {
+    width: calc(100% - 40px);
+    height: 68px;
+  }
+  .figma-app .header {
+    height: 68px;
+  }
+  .figma-app .concept-nav-search {
+    display: none;
+  }
+  .figma-app .concept-mobile-search {
+    display: inline-flex !important;
+  }
+  .figma-app .nav-actions {
+    gap: 12px;
+  }
+  .figma-app .nav-actions > .btn,
+  .figma-app .figma-my-learning,
+  .figma-app .menu-toggle {
+    display: none;
+  }
+  .figma-app .auth-login-link {
+    background: #f2edff;
+    color: var(--primary);
+    padding: 11px 13px;
+    border-radius: 7px;
+    font-size: 11px;
+  }
+  .figma-app .logo {
+    font-size: 23px;
+    gap: 6px;
+  }
+  .figma-app .container {
+    width: calc(100% - 40px);
+  }
+  .figma-app .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    height: 72px;
+    padding: 6px 12px max(6px, env(safe-area-inset-bottom));
+    z-index: 70;
+    justify-content: space-around;
+    gap: 6px;
+  }
+  .figma-app .bottom-nav a {
+    flex: 1;
+    max-width: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--muted);
+    font-size: 10px;
+    background: transparent;
+    padding: 6px;
+  }
+  .figma-app .bottom-nav a.active {
+    color: var(--primary);
+    background: #f4efff;
+    border-radius: 14px;
+  }
+  .figma-app .bottom-nav .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .figma-app {
+    padding-bottom: 72px;
+  }
+  .figma-app .footer {
+    display: none;
+  }
+  .figma-app .figma-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    width: calc(100% - 40px);
+    min-height: 0;
+    padding: 28px 16px 20px;
+    background: linear-gradient(115deg, #efe8ff, #fff0f4);
+    border-radius: 22px;
+    margin: 22px auto 0;
+  }
+  .figma-hero-band {
+    background: none;
+  }
+  .figma-hero h1 {
+    font-size: 31px;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin: 21px 0 12px;
+  }
+  .figma-hero h1 strong {
+    margin-top: 0;
+  }
+  .figma-app .desktop-headline {
+    display: none !important;
+  }
+  .figma-app .mobile-headline {
+    display: block !important;
+  }
+  .figma-kicker {
+    color: var(--primary);
+    background: none;
+    padding: 0;
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+  .figma-hero-copy > .mobile-headline {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .figma-hero .concept-benefits,
+  .figma-hero .figma-hero-caption,
+  .figma-hero .button-row .secondary {
+    display: none;
+  }
+  .figma-hero .button-row {
+    margin-top: 32px;
+  }
+  .figma-hero .button-row .btn {
+    min-height: 40px;
+    height: 40px;
+    padding: 9px 18px;
+    font-size: 11px;
+  }
+  .figma-course-preview {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+  .figma-course-preview:before,
+  .figma-course-preview:after,
+  .figma-preview-sticker,
+  .figma-preview-bottom {
+    display: none;
+  }
+  .figma-preview-header {
+    margin-bottom: 12px;
+    gap: 0;
+  }
+  .figma-preview-header .figma-avatar,
+  .figma-preview-header .btn,
+  .figma-preview-header small {
+    display: none;
+  }
+  .figma-preview-header b {
+    font-size: 12px;
+  }
+  .figma-preview-content {
+    display: block;
+  }
+  .figma-preview-content ol {
+    display: none;
+  }
+  .figma-preview-image {
+    aspect-ratio: 2.9;
+    border-radius: 0;
+  }
+  .figma-preview-image > strong {
+    font-size: 23px;
+    top: 23px;
+    left: 14px;
+  }
+  .figma-preview-image > strong small {
+    display: none;
+  }
+  .figma-video-controls {
+    display: none;
+  }
+  .figma-preview-progress {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin-top: 10px;
+  }
+  .figma-preview-progress b {
+    font-size: 12px;
+  }
+  .figma-preview-progress p {
+    font-size: 10px;
+    margin-top: 3px;
+  }
+  .figma-preview-progress > a {
+    display: none;
+  }
+  .figma-section {
+    margin: 25px 0 34px;
+  }
+  .figma-app .section-head {
+    margin-bottom: 14px;
+  }
+  .figma-app .section-head h2 {
+    font-size: 19px;
+  }
+  .figma-home .section-head .text-link {
+    display: none;
+  }
+  .figma-home .concept-category-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .figma-home .concept-category-strip > a:nth-child(n + 5) {
+    display: none;
+  }
+  .figma-app .concept-category {
+    padding: 16px 10px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+  .figma-app .concept-category h3 {
+    font-size: 11px;
+  }
+  .figma-app .concept-category p {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .figma-app .concept-category .category-icon {
+    width: 33px;
+    height: 33px;
+    border-radius: 7px;
+  }
+  .figma-app .concept-category .icon {
+    width: 21px;
+    height: 21px;
+  }
+  .figma-home .concept-path-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .figma-home .concept-path-grid > .course-card:nth-child(n + 3) {
+    display: none;
+  }
+  .figma-home .course-art {
+    height: 105px;
+    border-radius: 8px 8px 0 0;
+  }
+  .figma-home .course-copy {
+    padding: 11px;
+  }
+  .figma-home .course-copy h3 {
+    font-size: 11px;
+    margin: 0 0 7px;
+  }
+  .figma-home .card-meta {
+    font-size: 9px;
+    margin-top: 5px;
+    line-height: 1.6;
+  }
+  .figma-home .card-bottom {
+    padding-top: 8px;
+    margin-top: 8px;
+    min-height: 25px;
+  }
+  .figma-home .card-bottom > a {
+    font-size: 9px;
+  }
+  .figma-home .save-btn {
+    width: 23px;
+    height: 23px;
+  }
+  .figma-resume-banner {
+    display: block;
+    min-height: 130px;
+    padding: 19px 17px;
+    border-radius: 10px;
+  }
+  .figma-resume-banner h2 {
+    font-size: 17px;
+  }
+  .figma-resume-banner p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin: 10px 0 18px;
+  }
+  .figma-resume-banner .btn {
+    font-size: 11px;
+    min-height: 35px;
+    padding: 7px 15px;
+  }
+  .figma-home-desktop {
+    display: none !important;
+  }
+  .figma-home-content {
+    min-height: 760px;
+    padding-bottom: 150px;
+  }
+  .figma-app .concept-continue-grid {
+    grid-template-columns: 1fr;
+  }
+  .figma-app .concept-continue {
+    padding: 12px;
+  }
+  .figma-app .concept-continue h3 {
+    font-size: 12px;
+  }
+  .figma-app .concept-continue .course-art {
+    width: 65px;
+    height: 60px;
+  }
+  .figma-app .concept-browse,
+  .figma-app .concept-paths {
+    padding-top: 0;
+  }
+  .figma-app .concept-page-banner {
+    min-height: 180px;
+    padding: 20px 0;
+    margin: 0 0 24px;
+    gap: 8px;
+  }
+  .figma-app .concept-page-banner .page-intro {
+    max-width: 72%;
+    padding: 15px 0;
+  }
+  .figma-app .concept-page-banner h1 {
+    font-size: 27px;
+    line-height: 1.25;
+    letter-spacing: -0.6px;
+    margin: 10px 0;
+  }
+  .figma-app .concept-page-banner .eyebrow {
+    font-size: 8px;
+  }
+  .figma-app .concept-page-banner p {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .figma-app .figma-banner-image {
+    width: 30%;
+    height: 115px;
+    margin: 0;
+    align-self: center;
+  }
+  .figma-app .concept-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .figma-app .concept-category-grid > .concept-category {
+    min-height: 110px;
+    padding: 14px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .figma-app .concept-category-grid .category-icon {
+    width: 34px;
+    height: 34px;
+  }
+  .figma-app .concept-category-grid .category-icon .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .figma-app .concept-category-grid h3 {
+    font-size: 12px;
+  }
+  .figma-app .concept-category-grid p {
+    font-size: 9px;
+    margin-top: 5px;
+  }
+  .figma-app .concept-help-banner {
+    padding: 20px;
+    min-height: 160px;
+    margin: 26px 0;
+    border-radius: 12px;
+  }
+  .figma-app .concept-help-banner h2 {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .figma-app .concept-help-banner p {
+    font-size: 10px;
+    margin: 9px 0 14px;
+  }
+  .figma-app .concept-help-banner .btn {
+    font-size: 10px;
+    min-height: 34px;
+    padding: 7px 12px;
+  }
+  .figma-app .figma-guidance-image {
+    width: 37%;
+    height: 145px;
+    right: 2px;
+    bottom: 0;
+  }
+  .figma-app .concept-help-banner > div {
+    max-width: 65%;
+  }
+  .figma-app .concept-resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .figma-app .course-copy {
+    padding: 12px;
+  }
+  .figma-app .course-copy h3 {
+    font-size: 12px;
+  }
+  .figma-app .course-copy p {
+    font-size: 10px;
+  }
+  .figma-app .card-meta {
+    font-size: 9px;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .figma-app .card-bottom > a {
+    font-size: 10px;
+  }
+  .figma-app .concept-cta {
+    padding: 24px 20px;
+    display: block;
+  }
+  .figma-app .concept-cta h2 {
+    font-size: 21px;
+  }
+  .figma-app .concept-cta p {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+  .figma-category-benefits {
+    padding: 22px 18px;
+    margin: 26px 0;
+  }
+  .figma-category-benefits h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+  }
+  .figma-category-benefits > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .figma-category-benefits > div > div {
+    gap: 10px;
+  }
+  .figma-category-benefits .icon {
+    width: 21px;
+    height: 21px;
+  }
+  .figma-category-benefits b {
+    font-size: 10px;
+  }
+  .figma-category-benefits small {
+    font-size: 9px;
+    margin-top: 4px;
+  }
+  .figma-app .concept-paths .filter-bar {
+    display: block;
+    margin-bottom: 26px;
+  }
+  .figma-level-tabs {
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+  .figma-level-tabs button {
+    padding: 8px 11px;
+    font-size: 10px;
+    white-space: nowrap;
+    min-height: 36px;
+  }
+  .figma-app .concept-paths .filter-bar > label {
+    display: none;
+  }
+  .figma-app .concept-paths .concept-path-grid {
+    gap: 14px;
+  }
+  .figma-app .concept-paths .course-art {
+    height: 110px;
+  }
+  .figma-app .concept-paths .course-copy p {
+    font-size: 10px;
+  }
+  .figma-app .concept-all-paths > a {
+    padding: 14px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .figma-app .concept-all-paths h3 {
+    font-size: 12px;
+  }
+  .figma-app .concept-all-paths p {
+    font-size: 10px;
+  }
+  .figma-app .concept-all-paths .category-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .figma-app .concept-all-paths > a > span:not(.category-icon) {
+    display: none;
+  }
+  .figma-app .concept-all-paths b {
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+  .figma-app .concept-results-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .figma-playlists .concept-filters {
+    display: none;
+  }
+  .figma-playlists.filters-open .concept-filters {
+    display: block;
+  }
+  .figma-app .concept-list-toolbar {
+    gap: 9px;
+    margin: 20px 0 14px;
+    flex-wrap: wrap;
+  }
+  .figma-app .concept-list-toolbar input {
+    font-size: 11px;
+    height: 40px;
+    max-width: none;
+    padding: 10px 12px;
+    flex-basis: 70%;
+  }
+  .figma-app .concept-list-toolbar .btn {
+    font-size: 10px;
+    min-height: 40px;
+    padding: 8px 12px;
+  }
+  .figma-app .concept-list-toolbar select {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .figma-app .concept-filter-chips {
+    flex-wrap: nowrap;
+    overflow: auto;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+  }
+  .figma-app .concept-filter-chips button {
+    font-size: 10px;
+    padding: 6px 12px;
+    white-space: nowrap;
+  }
+  .figma-app .concept-playlist-list .playlist-card {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 106px;
+  }
+  .figma-app .concept-playlist-list .resource-thumbnail {
+    height: 70px;
+    border-radius: 6px;
+  }
+  .figma-app .concept-playlist-list .course-copy {
+    padding: 0 14px 20px 0;
+  }
+  .figma-app .concept-playlist-list .course-copy h3 {
+    font-size: 11px;
+    margin: 0 0 4px;
+  }
+  .figma-app .concept-playlist-list .course-copy p {
+    font-size: 9px;
+  }
+  .figma-app .concept-playlist-list .card-meta {
+    font-size: 8px;
+    margin-top: 8px;
+    gap: 5px;
+  }
+  .figma-app .concept-playlist-list .save-btn {
+    right: 6px;
+    top: 7px;
+    width: 22px;
+    height: 22px;
+  }
+  .figma-app .concept-playlist-list .card-bottom > a {
+    bottom: 9px;
+    right: 10px;
+    font-size: 9px;
+  }
+  .figma-app .concept-playlist-list .card-bottom > a .icon {
+    width: 11px;
+  }
+  .figma-app .auth-layout {
+    width: calc(100% - 40px);
+    display: block;
+    min-height: calc(100vh - 160px);
+    margin: 28px auto;
+  }
+  .figma-app .auth-story {
+    display: none;
+  }
+  .figma-app .auth-form {
+    margin: 0;
+    max-width: 100%;
+    padding: 28px 22px;
+  }
+  .figma-app .auth-form h2 {
+    font-size: 30px;
+  }
+  .figma-app .auth-form .input {
+    min-height: 46px;
+  }
+  .figma-app .auth-form .button-primary {
+    min-height: 44px;
+  }
+  .figma-auth-shell .auth-login-link {
+    display: none;
+  }
+  .figma-app .path-detail-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 25px;
+    padding: 20px 0 28px;
+  }
+  .figma-app .path-detail-hero h1 {
+    font-size: 30px;
+    margin: 12px 0;
+  }
+  .figma-app .path-detail-hero p {
+    font-size: 13px;
+  }
+  .figma-app .path-facts {
+    font-size: 10px;
+    gap: 12px;
+  }
+  .figma-app .path-art .course-art {
+    height: 180px;
+  }
+  .figma-app .path-detail-hero .button-row {
+    gap: 10px;
+  }
+  .figma-app .path-detail-hero .btn {
+    font-size: 11px;
+    padding: 8px 12px;
+    min-height: 40px;
+  }
+  .figma-app .breadcrumb {
+    font-size: 10px;
+    padding: 20px 0 5px;
+  }
+  .figma-app .detail-layout .module-list summary {
+    padding: 14px;
+    gap: 12px;
+  }
+  .figma-app .module-list summary h3 {
+    font-size: 14px;
+  }
+  .figma-app .module-list .module-number {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+  .figma-app .module-list .module-body {
+    padding: 0 14px 14px;
+  }
+  .figma-app .lesson-row {
+    padding: 12px;
+    font-size: 12px;
+  }
+  .figma-app .lesson-container {
+    width: calc(100% - 40px);
+    padding-top: 18px;
+  }
+  .figma-app .lesson-container > a {
+    font-size: 10px;
+  }
+  .figma-app .concept-lesson-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  .figma-app .lesson-main {
+    order: 0;
+    width: 100%;
+    min-width: 0;
+  }
+  .figma-app .lesson-title-row h2 {
+    font-size: 23px;
+  }
+  .figma-app .lesson-title-row p {
+    font-size: 10px;
+  }
+  .figma-app .lesson-title-row > .btn {
+    font-size: 9px;
+    padding: 6px 8px;
+    min-height: 34px;
+  }
+  .figma-app .lesson-title-row {
+    gap: 8px;
+    flex-direction: column;
+  }
+  .figma-app .concept-course-sidebar {
+    display: block !important;
+    order: 1;
+    width: 100%;
+  }
+  .figma-app .concept-course-heading {
+    display: none;
+  }
+  .figma-app .concept-course-progress {
+    padding: 16px;
+    border-top: 1px solid var(--line);
+    border-radius: 10px;
+  }
+  .figma-app .concept-course-sidebar details {
+    margin-top: 14px;
+  }
+  .figma-app .concept-course-sidebar li button {
+    font-size: 12px;
+    padding: 12px 8px;
+  }
+  .figma-app .concept-lesson-right {
+    order: 2;
+    width: 100%;
+    margin: 0;
+  }
+  .figma-app .lesson-main .tabs button {
+    font-size: 10px;
+    padding: 8px 12px;
+    min-height: 35px;
+  }
+  .figma-app .lesson-main .tabs {
+    gap: 6px;
+    margin: 18px 0 12px;
+  }
+  .figma-app .lesson-panel {
+    padding: 16px;
+    min-height: 160px;
+  }
+  .figma-app .lesson-panel h3 {
+    font-size: 15px;
+  }
+  .figma-app .lesson-panel p {
+    font-size: 12px;
+  }
+  .figma-app .concept-video-actions {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .figma-app .concept-video-actions .btn {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+  .figma-app .concept-search-page {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 40px);
+    margin: 24px auto;
+    gap: 20px;
+  }
+  .figma-app .concept-search-main {
+    width: 100%;
+    order: 0;
+  }
+  .figma-app .concept-search-page > .concept-filters {
+    width: 100%;
+    order: 1;
+    padding: 18px;
+  }
+  .figma-app .concept-search-main > h1 {
+    font-size: 23px;
+  }
+  .figma-app .concept-search-main > .search-form {
+    display: flex;
+  }
+  .figma-app .concept-search-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .figma-app .concept-search-toolbar .tabs {
+    width: 100%;
+    overflow-x: auto;
+    gap: 0;
+  }
+  .figma-app .concept-search-toolbar .tabs button {
+    font-size: 10px;
+    white-space: nowrap;
+    padding: 12px 10px;
+  }
+  .figma-app .concept-search-paths {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .figma-app .concept-search-paths .course-art {
+    height: 95px;
+  }
+  .figma-app .concept-search-paths .course-copy h3 {
+    font-size: 11px;
+  }
+  .figma-app .concept-search-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .figma-app .concept-search-split .concept-resource-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .figma-app .concept-creators-panel {
+    margin: 15px 0;
+  }
+  .figma-app .concept-filter-note {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .figma-app * {
+    scroll-behavior: auto;
+    transition: none !important;
+    animation: none !important;
+  }
+}

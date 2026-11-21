@@ -20,6 +20,7 @@ import {
   ChevronRight,
   Check,
 } from './Common';
+import { figmaArtwork } from './FigmaAssets';
 export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
   const { slug = '' } = useParams();
   const course = useApi(() => api.detail(kind, slug), [kind, slug]);
@@ -35,6 +36,11 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
   if (!c) return <NotFound />;
   const related = resources.data?.filter((r) => r.related_slug === slug) || [];
   const saved = learning.isCourseSaved(c.id);
+  const topics = roadmap.data?.stages.flatMap((s) => s.topics) || [];
+  const completedTopics = topics.filter((t) =>
+    learning.isTopicComplete(roadmap.data?.id || '', t.id),
+  ).length;
+  const progress = topics.length ? Math.round((completedTopics / topics.length) * 100) : 0;
   const start = () => {
     requireAuth(() => {
       void request(`/me/learning/courses/${c.id}`, { method: 'PUT' })
@@ -47,7 +53,7 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
     });
   };
   return (
-    <div className="container">
+    <div className="container figma-detail-page">
       <Breadcrumb items={[{ label: 'Learning paths', to: '/paths' }, { label: c.title }]} />
       <section className="path-detail-hero">
         <div>
@@ -75,7 +81,7 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
           {startError && <p role="alert">{startError}</p>}
           <div className="button-row">
             <button className="btn" onClick={start}>
-              Start this path <ArrowRight className="icon" />
+              Start roadmap <ArrowRight className="icon" />
             </button>
             <button
               className={`btn secondary ${saved ? 'is-saved' : ''}`}
@@ -88,7 +94,7 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
           </div>
         </div>
         <div className="path-art">
-          <Art title={c.title} category={c.category} large />
+          <Art title={c.title} category={c.category} src={c.thumbnail_url} large />
           <span className="art-caption">A SMALL START. A CLEAR DIRECTION.</span>
         </div>
       </section>
@@ -115,7 +121,7 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
           <div className="section-head compact">
             <div>
               <span className="eyebrow">THE BIGGER PICTURE</span>
-              <h2>Your learning roadmap.</h2>
+              <h2>Roadmap modules</h2>
             </div>
             <span className="text-muted">
               {roadmap.data?.stages.length || c.modules.length} modules
@@ -129,15 +135,26 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
               <Loading />
             ) : roadmap.data ? (
               roadmap.data.stages.map((s, i) => (
-                <details key={s.id} open={i === 0}>
+                <details key={s.id}>
                   <summary>
-                    <span className="module-number">{String(i + 1).padStart(2, '0')}</span>
+                    <img
+                      className="figma-module-thumbnail"
+                      src={figmaArtwork(s.title, c.category)}
+                      alt=""
+                    />
                     <div>
                       <small>
                         MODULE {i + 1} · {s.topics.length} TOPICS
                       </small>
                       <h3>{s.title}</h3>
                     </div>
+                    <Link
+                      className="figma-open-module"
+                      to={`/roadmap/${kind}/${slug}`}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      Open module
+                    </Link>
                     <ChevronDown className="icon" />
                   </summary>
                   <div className="module-body">
@@ -173,7 +190,7 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
               ))
             ) : (
               c.modules.map((title, i) => (
-                <details key={title} open={i === 0}>
+                <details key={title}>
                   <summary>
                     <span className="module-number">{String(i + 1).padStart(2, '0')}</span>
                     <h3>{title}</h3>
@@ -225,18 +242,35 @@ export function PathDetail({ kind }: { kind: 'exam' | 'skill' }) {
           </div>
         </aside>
       </div>
+      {!!topics.length && (
+        <section className="figma-roadmap-progress">
+          <div>
+            <h3>Your roadmap progress</h3>
+            <p>
+              {completedTopics} of {topics.length} topics completed · {progress}%
+            </p>
+            <div className="progressbar">
+              <i style={{ width: `${progress}%` }} />
+            </div>
+          </div>
+          <Link className="text-link" to={`/roadmap/${kind}/${slug}`}>
+            Continue roadmap <ArrowRight className="icon" />
+          </Link>
+        </section>
+      )}
     </div>
   );
 }
 export function PlaylistDetail() {
   const { slug = '' } = useParams();
   const result = useApi(() => api.resource(slug), [slug]);
+  const learning = useLearning();
   if (result.loading) return <Loading />;
   if (result.error) return <ErrorState message={result.error} />;
   const r = result.data;
   if (!r) return <NotFound />;
   return (
-    <div className="container">
+    <div className="container figma-detail-page figma-playlist-detail">
       <Breadcrumb items={[{ label: 'Playlists', to: '/playlists' }, { label: r.title }]} />
       <section className="path-detail-hero">
         <div>
@@ -254,23 +288,38 @@ export function PlaylistDetail() {
             <span>{r.level}</span>
             <span>{r.category}</span>
           </div>
-          <Button to={`/learn/${r.slug}`}>Start watching</Button>
+          <div className="button-row">
+            <Button to={`/learn/${r.slug}`}>Play first lesson</Button>
+            <button
+              className="btn secondary"
+              aria-pressed={learning.isResourceSaved(r.id)}
+              onClick={() => learning.toggleResource(r.id)}
+            >
+              {learning.isResourceSaved(r.id) ? 'Saved' : 'Save for later'}
+            </button>
+          </div>
         </div>
-        <Art title={r.title} category={r.category} large />
+        <Art title={r.title} category={r.category} src={r.thumbnail_url} large />
       </section>
       <section className="section">
-        <SectionHead eyebrow="ONE LESSON AT A TIME" title="Inside this playlist." />
+        <SectionHead eyebrow="" title="Lessons" />
         {r.lessons.length ? (
           <div className="module-list">
             {r.lessons.map((lesson, i) => (
-              <Link key={lesson.id} className="lesson-row" to={`/learn/${r.slug}`}>
-                <span className="lesson-symbol">
-                  <Play className="icon" />
-                </span>
+              <Link
+                key={lesson.id}
+                className="lesson-row"
+                to={`/learn/${r.slug}?lesson=${encodeURIComponent(lesson.id)}`}
+              >
+                <img
+                  className="figma-module-thumbnail"
+                  src={figmaArtwork(lesson.title, r.category)}
+                  alt=""
+                />
                 <span>
                   {i + 1}. {lesson.title}
                 </span>
-                <ChevronRight className="icon" />
+                <span className="figma-open-module">Watch →</span>
               </Link>
             ))}
           </div>

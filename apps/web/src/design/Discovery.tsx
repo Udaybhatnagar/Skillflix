@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { api } from '../services/api';
 import { useApi } from '../hooks/useApi';
 import { Loading, ErrorState } from '../components/shared/States';
+import { figmaAssets } from './FigmaAssets';
 import {
   Art,
   Button,
@@ -411,15 +412,18 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
           </div>
         </section>
       ) : (
-        <Intro
-          eyebrow={kind === 'exam' ? 'COMPETITIVE EXAMS' : 'LEARNING PATHS'}
-          title={
-            <>
-              Learning <span>Paths</span>
-            </>
-          }
-          description="See what to learn, in what order, and what you can build along the way."
-        />
+        <div className="concept-page-banner">
+          <Intro
+            eyebrow={kind === 'exam' ? 'COMPETITIVE EXAMS' : 'LEARN STEP BY STEP'}
+            title={<>Learning Paths</>}
+            description="Pick a skill and follow a structured learning roadmap."
+          />
+          <img
+            className="figma-banner-image"
+            src={figmaAssets.paths}
+            alt="A learning path with milestones"
+          />
+        </div>
       )}
       <div className="mini-feature">
         <span>
@@ -436,6 +440,13 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
         </span>
       </div>
       <div className="filter-bar">
+        <div className="figma-level-tabs" aria-label="Filter paths by level">
+          {['all', 'Beginner', 'Intermediate', 'Advanced'].map((l) => (
+            <button key={l} className={level === l ? 'active' : ''} onClick={() => setLevel(l)}>
+              {l === 'all' ? '▣ All Paths' : l}
+            </button>
+          ))}
+        </div>
         <span className="filter-label">Filter paths</span>
         <label>
           <span className="sr-only">Category</span>
@@ -473,7 +484,7 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
         <ErrorState message={paths.error} />
       ) : visible.length ? (
         <>
-          <SectionHead eyebrow="" title="Explore Learning Paths" />
+          <SectionHead eyebrow="" title="Most Popular Paths" />
           <div className="concept-path-grid">
             {visible.slice(0, 4).map((x) => (
               <PathCard key={x.id} item={x} />
@@ -509,7 +520,11 @@ export function Paths({ kind }: { kind?: 'skill' | 'exam' }) {
               <p>Choose a path and we will guide you step by step.</p>
               <Button to="/onboarding">Find your direction</Button>
             </div>
-            <Layers />
+            <img
+              className="figma-guidance-image"
+              src={figmaAssets.map}
+              alt="A map showing learning milestones"
+            />
           </div>
         </>
       ) : (

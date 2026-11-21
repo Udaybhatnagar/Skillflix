@@ -1,27 +1,19 @@
 import { AuthForm } from '../components/auth/AuthForm';
-import { Art, Check } from '../design/Common';
+import { figmaAssets } from '../design/FigmaAssets';
 function AuthPage({ mode }: { mode: 'login' | 'signup' }) {
   return (
     <div className="auth-layout">
       <section className="auth-story">
-        <span className="eyebrow">YOUR NEXT CHAPTER</span>
         <h1>
-          A little less searching.
+          Keep learning
           <br />
-          <span>A lot more learning.</span>
+          <span>at your pace.</span>
         </h1>
-        <p>
-          Save a path. Find your place.
-          <br />
-          Keep moving at your own pace.
-        </p>
+        <p>Save playlists and resume lessons across devices.</p>
         <div className="auth-art">
-          <Art title="UI/UX Design" category="Design" />
-          <div className="auth-floating">
-            <Check className="icon" />A clear next step.
-          </div>
+          <img src={figmaAssets.react} alt="React learning illustration" />
+          <strong>Learn React</strong>
         </div>
-        <span className="smallprint">LEARN WITH DIRECTION</span>
       </section>
       <section className="auth-form">
         <AuthForm mode={mode} />

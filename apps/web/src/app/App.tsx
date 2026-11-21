@@ -9,7 +9,8 @@ import { AuthCallback, ForgotPassword } from '../components/auth/AuthForm';
 import { AuthDialog } from '../components/auth/AuthDialog';
 import { useAuth } from '../context/Auth';
 import { LoginPage, SignupPage } from '../pages/AuthPages';
-import { Profile, Saved, Onboarding, Learning as MyLearning } from '../design/Account';
+import { Profile, Saved, Onboarding } from '../design/Account';
+import { FigmaLearning as MyLearning } from '../design/FigmaLearning';
 import { Contact, Privacy, Terms } from '../pages/Info';
 const Player = lazy(() => import('../pages/Player').then((m) => ({ default: m.Player })));
 const AdminApp = lazy(() => import('../admin/AdminApp').then((m) => ({ default: m.AdminApp })));
@@ -20,12 +21,9 @@ import { PathDetail as Detail, PlaylistDetail } from '../design/PathDetail';
 
 import { RoadmapPage } from '../pages/Roadmap';
 import { ReferenceSearch as Search } from '../design/Search';
-import {
-  ConceptHome as Home,
-  ConceptCategories as Categories,
-  ConceptPlaylists as Resources,
-} from '../design/Concept';
+import { ConceptCategories as Categories, ConceptPlaylists as Resources } from '../design/Concept';
 import { Teachers, TeacherProfile } from '../design/Teachers';
+import { FigmaHome } from '../design/FigmaHome';
 
 const titles: Record<string, string> = {
   '/': 'Home',
@@ -137,7 +135,7 @@ export function App() {
                 element={
                   <Layout>
                     <Routes>
-                      <Route path="/" element={<Home />} />
+                      <Route path="/" element={<FigmaHome />} />
                       <Route path="/exams" element={<Catalog kind="exam" />} />
                       <Route path="/courses" element={<Courses />} />
                       <Route path="/paths" element={<Courses />} />

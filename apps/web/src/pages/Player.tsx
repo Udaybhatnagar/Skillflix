@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Check, ExternalLink } from 'lucide-react';
 import { useAuth } from '../context/Auth';
 import { useLearning } from '../context/LearningState';
@@ -138,6 +138,9 @@ function YouTubePlayer({
 export function Player() {
   const { t } = useLanguage();
   const { slug = '' } = useParams();
+  const [searchParams] = useSearchParams();
+  const requestedLesson = searchParams.get('lesson');
+  const selectedRequestedLesson = useRef(false);
   const { user, loading: authLoading } = useAuth();
   const learning = useLearning();
   const result = useApi(() => api.resource(slug), [slug]);
@@ -150,10 +153,25 @@ export function Player() {
   useEffect(() => {
     setActive(0);
     setPlaylistVideos([]);
+    selectedRequestedLesson.current = false;
   }, [slug]);
+  useEffect(() => {
+    if (selectedRequestedLesson.current || !requestedLesson || !result.data) return;
+    const lesson = result.data.lessons.find((l) => l.id === requestedLesson);
+    if (!lesson) return;
+    const index = result.data.playlist_id
+      ? playlistVideos.indexOf(lesson.video_id || '')
+      : result.data.lessons.indexOf(lesson);
+    if (index < 0) return;
+    selectedRequestedLesson.current = true;
+    setActive(index);
+    if (result.data.playlist_id) controls.current?.playVideoAt(index);
+  }, [requestedLesson, result.data, playlistVideos]);
   const sessionResource =
     result.data?.kind === 'Playlist'
-      ? result.data.lessons.find((x) => x.video_id === playlistVideos[active])
+      ? result.data.playlist_id
+        ? result.data.lessons.find((x) => x.video_id === playlistVideos[active])
+        : result.data.lessons[active]
       : result.data;
   useEffect(() => {
     if (!user || !sessionResource?.id || sessionResource.kind !== 'Video') return;
@@ -169,7 +187,12 @@ export function Player() {
       </main>
     );
   if (!user)
-    return <Navigate to={`/login?returnTo=${encodeURIComponent(`/learn/${slug}`)}`} replace />;
+    return (
+      <Navigate
+        to={`/login?returnTo=${encodeURIComponent(`/learn/${slug}${requestedLesson ? `?lesson=${encodeURIComponent(requestedLesson)}` : ''}`)}`}
+        replace
+      />
+    );
   if (result.loading)
     return (
       <main className="container-site">
@@ -298,14 +321,6 @@ export function Player() {
               <h2>{current?.title || resource.title}</h2>
               <p>By {resource.creator}</p>
             </div>
-            <button
-              className={`btn ${completed ? 'secondary' : ''}`}
-              disabled={!trackedCurrent}
-              onClick={() => void complete()}
-            >
-              {completed ? t('markIncomplete') : t('markComplete')}
-              <Check className="icon" />
-            </button>
           </div>
           <YouTubePlayer
             key={resource.id}
@@ -326,6 +341,14 @@ export function Player() {
             }}
           />
           <div className="concept-video-actions">
+            <button
+              className={`btn ${completed ? 'secondary' : ''}`}
+              disabled={!trackedCurrent}
+              onClick={() => void complete()}
+            >
+              <Check className="icon" />
+              {completed ? t('markIncomplete') : t('markComplete')}
+            </button>
             <button className="btn secondary" onClick={() => learning.toggleResource(resource.id)}>
               <Bookmark className="icon" />
               {learning.isResourceSaved(resource.id) ? 'Saved' : 'Save'}
